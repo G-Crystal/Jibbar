@@ -1,0 +1,160 @@
+// SIDEBAR
+
+jibbar-dashboard-sidebar {
+  position: fixed;
+  top: 0;
+  left: -1 * $dashboard-sidebar-width;
+  display: block;
+  width: $dashboard-sidebar-width;
+  height: 100%;
+  background-color: #6d1d6b;
+  z-index: 101;
+  transition: left .2s;
+
+  .c-dashboard-sidebar--active & {
+    left: 0;
+  }
+
+  .c-dashboard-sidebar--hidden & {
+    height: $dashboard-top-menu-height;
+    overflow: hidden;
+  }
+
+  @include desktopL {
+    left: 0;
+  }
+}
+
+.c-dashboard-sidebar {
+}
+
+  .c-dashboard-sidebar__logo {
+    display: block;
+    width: 141px;
+    height: 37px;
+    margin: 26px 0 0 18px;
+  }
+
+  .c-dashboard-sidebar__menu {
+    position: relative;
+    max-height: calc(100vh - 52px - 37px - 26px);
+    overflow: hidden;
+    margin-top: 52px;
+  }
+
+    .c-dashboard-sidebar__item {
+      display: block;
+      margin: 10px 0;
+
+      &--active {
+        a.c-dashboard-sidebar__link {
+          color: #fff;
+          background-color: rgba(0, 0, 0, .18);
+
+          &:after {
+            opacity: 1;
+          }
+        }
+
+        .c-dashboard-sidebar__icon {
+          opacity: 1;
+        }
+
+        .c-dashboard-sidebar__submenu {
+          display: block;
+        }
+      }
+    }
+
+      a.c-dashboard-sidebar__link {
+        position: relative;
+        display: block;
+        height: 41px;
+        padding-left: 16px;
+        font-size: 1.0625rem;
+        font-weight: 900;
+        text-decoration: none;
+        line-height: 41px;
+        color: #cbabca;
+        transition: color .2s, background-color .2s;
+
+        &:hover {
+          color: #fff;
+        }
+
+        &:after {
+          content: ' ';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 0;
+          height: 0;
+          transform: translateY(-50%);
+          border-top: 7px solid transparent;
+          border-bottom: 7px solid transparent;
+          border-right: 7px solid #fff;
+          opacity: 0;
+          transition: opacity .2s;
+        }
+      }
+
+        .c-dashboard-sidebar__icon {
+          display: inline-block;
+          width: 27px;
+          margin-right: 5px;
+          vertical-align: middle;
+          opacity: .7;
+          transition: opacity .2s;
+
+          &--analytics {
+            @include svg-sprite(dashboard-sidebar-analytics, 27px, 18px);
+            margin-top: -1px;
+          }
+          &--contacts {
+            @include svg-sprite(dashboard-sidebar-contacts, 27px, 17px);
+            margin-top: -1px;
+          }
+          &--emails {
+            @include svg-sprite(dashboard-sidebar-emails, 27px, 14px);
+            margin-top: -2px;
+          }
+          &--groups {
+            @include svg-sprite(dashboard-sidebar-groups, 27px, 16px);
+            margin-top: -1px;
+          }
+          &--signatures {
+            @include svg-sprite(dashboard-sidebar-signatures, 27px, 22px);
+          }
+          &--templates {
+            @include svg-sprite(dashboard-sidebar-templates, 27px, 19px);
+          }
+        }
+
+      .c-dashboard-sidebar__submenu {
+        display: none;
+        background-color: #8e3a8e;
+        color: #cbabca;
+      }
+
+        .c-dashboard-sidebar__subitem {
+          display: block;
+        }
+
+          .c-dashboard-sidebar__submenu {
+            padding: 6px 0;
+          }
+
+            a.c-dashboard-sidebar__sublink {
+              height: 30px;
+              padding-left: 16px;
+              line-height: 28px;
+              font-size: 1.0625rem;
+              text-decoration: none;
+              color: #cbabca;
+
+              &:hover,
+              &--active {
+                font-weight: 700;
+                color: #fff;
+              }
+            }

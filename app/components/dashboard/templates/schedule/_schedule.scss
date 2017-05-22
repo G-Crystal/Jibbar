@@ -1,0 +1,102 @@
+// TEMPLATES SCHEDULE
+
+jibbar-dashboard-templates-schedule {
+}
+
+.c-templates-schedule {
+}
+
+  .c-templates-schedule__icon {
+    @include svg-sprite(dashboard-templates-schedule-icon, 93px, 100px, x);
+  }
+
+  .c-templates-schedule__controls {
+    @include desktopS {
+      display: flex;
+    }
+  }
+
+    .c-templates-schedule__controls-left {
+      display: flex;
+      flex-grow: 1;
+    }
+
+      .c-templates-schedule__time-input {
+        flex-grow: 1;
+        width: 1%;
+        max-width: 739px;
+        padding-left: 7px;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 40px;
+        color: #697b97;
+
+        @include desktopS {
+          margin-right: 20px;
+        }
+
+        @include desktopXL {
+          margin-right: 37px;
+        }
+      }
+
+        .c-templates-schedule__time-icon {
+          @include svg-sprite(dashboard-templates-schedule-time, 28px, 28.1px);
+          display: inline-block;
+          vertical-align: middle;
+          margin: -2px 5px 0 0;
+        }
+
+        .c-templates-schedule__time-highlighted {
+          display: inline-block;
+          margin-left: 5px;
+          font-weight: 900;
+          color: #92278f;
+        }
+
+    .c-templates-schedule__send-button {
+      float: right;
+      width: 254px;
+      margin-top: 15px;
+      padding: 0;
+
+      @include desktopS {
+        margin-top: 0;
+      }
+    }
+
+
+  .c-templates-schedule__container {
+    display: flex;
+    margin-top: 30px;
+  }
+
+    .c-templates-schedule__content {
+      flex-grow: 1;
+      text-align: left;
+    }
+
+      .c-templates-schedule__sub-heading {
+        margin-bottom: 20px;
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: #4d4d5d;
+      }
+
+      .c-templates-schedule__date {
+        display: inline-block;
+        vertical-align: top;
+        width: 360px;
+      }
+
+      .c-templates-schedule__time {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 35px;
+      }
+
+        .c-templates-schedule__schedule-button {
+          width: 100%;
+          margin-top: 68px;
+          padding: 0;
+        }

@@ -1,0 +1,53 @@
+<input class="c-recipients-search__input c-input" placeholder="Quick search for groups or individuals"
+       ng-model="$ctrl.searchValue"
+       ng-keyup="$ctrl.search()"
+       ng-click="$ctrl.search()">
+
+<span class="c-recipients-search__search-icon"></span>
+
+<div class="c-recipients-search__result"
+     ng-show="$ctrl.searchResult">
+  <div class="c-recipients-search__result-container">
+    <div ng-if="$ctrl.searchResult.groups">
+      <div class="c-recipients-search__result-heading">
+        <span class="c-recipients-search__result-icon c-recipients-search__result-icon--groups"></span>
+        Groups
+      </div>
+
+      <ul class="c-recipients-search__result-list o-list-bare">
+        <li class="c-recipients-search__result-item" ng-repeat="group in $ctrl.searchResult.groups">
+          <div class="c-recipients-search__result-column">{{ group.name }}</div>
+          <div class="c-recipients-search__result-column">[ {{ group.count }} addresses ]</div>
+          <div class="c-recipients-search__result-column c-recipients-search__result-column--narrow">
+            <a class="c-recipients-search__add" href="javascript:void(0)"
+               ng-click="$ctrl.onGroupAdd({value: group})">
+              <span class="c-recipients-search__add-icon"></span> Add
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div ng-if="$ctrl.searchResult.individuals">
+      <div class="c-recipients-search__result-heading">
+        <span class="c-recipients-search__result-icon c-recipients-search__result-icon--individuals"></span>
+        Individuals
+      </div>
+
+      <ul class="c-recipients-search__result-list o-list-bare">
+        <li class="c-recipients-search__result-item" ng-repeat="individual in $ctrl.searchResult.individuals">
+          <div class="c-recipients-search__result-column">{{ individual.fullName }}</div>
+          <div class="c-recipients-search__result-column">
+            <a class="c-recipients-search__result-link" href="mailto:{{ individual.email }}">{{ individual.email }}</a>
+          </div>
+          <div class="c-recipients-search__result-column c-recipients-search__result-column--narrow">
+            <a class="c-recipients-search__add" href="javascript:void(0)"
+               ng-click="$ctrl.onIndividualAdd({value: individual})">
+              <span class="c-recipients-search__add-icon"></span> Add
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

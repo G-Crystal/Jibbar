@@ -1,0 +1,24 @@
+<h3 class="c-home__forms-heading">Email activation</h3>
+<div ng-if="!$ctrl.confirmationCode">
+    <form class="c-home__forms-form  forget-form" name="emailActivationForm">
+        <p class="text-center text-justify c-home__email-activation_p">
+            A link will be sent to your email to activate your email address. If you don't get an email within a few minutes, please
+            re-try.
+        </p>
+        <div class="c-home__forms-group">
+            <input class="c-home__forms-input" type="hidden" ng-model="$ctrl.user.tenancyName" autocomplete="off" placeholder="Tenancy Name"
+                name="tenancyName" maxlength="80" />
+        </div>
+        <div class="c-home__forms-group" ng-class="{ 'has-error' : emailActivationForm.EmailAddress.$invalid && (!emailActivationForm.EmailAddress.$pristine || emailActivationForm.EmailAddress.$touched) }">
+            <input class="c-home__forms-input" type="email" ng-model="$ctrl.user.emailAddress" autocomplete="off" placeholder="Email Address"
+                name="EmailAddress" required maxlength="100">
+                <div class="help-block" ng-messages="emailActivationForm.EmailAddress.$error" ng-if="emailActivationForm.EmailAddress.$invalid && (!emailActivationForm.EmailAddress.$pristine || emailActivationForm.EmailAddress.$touched)">
+                    <p ng-message="required">Email address required.</p>
+                </div>
+        </div>
+        <div class="c-home__forms-group c-home-sign-in__buttons">
+            <button class="c-home-sign-in__button c-home__forms-button" ng-click="$ctrl.activateEmail(emailActivationForm)" type="submit">Submit</button>
+            <a class="c-home-sign-in__recovery" ui-sref="home.sign-in">Back</a>
+        </div>
+    </form>
+</div>

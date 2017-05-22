@@ -1,0 +1,93 @@
+// DATEPICKER
+
+.c-datepicker {
+  display: inline-block;
+  width: 360px;
+  max-width: 100%;
+  background-color: #fff;
+  border: 2px solid #c9d4e1;
+  border-radius: 5px;
+}
+
+  .c-datepicker__heading {
+    position: relative;
+    height: 46px;
+    font-size: 1.0625rem;
+    font-weight: 900;
+    line-height: 46px;
+    text-align: center;
+    border-bottom: 2px solid #c9d4e1;
+    background-color: #f4f6f8;
+    color: #697b97;
+  }
+
+    .c-datepicker__month-arrow {
+      @include svg-sprite(datepicker-arrow, 9px, 14px);
+      position: absolute;
+      top: 15px;
+      display: inline-block;
+      transition: opacity .2s;
+
+      &:hover {
+        opacity: .5;
+      }
+
+      &--previous {
+        left: 10px;
+      }
+
+      &--next {
+        right: 10px;
+        transform: rotate(180deg);
+      }
+    }
+
+  .c-datepicker__table {
+    width: 100%;
+    color: #72839d;
+  }
+
+    .c-datepicker__table-row {
+      border-top: 1px solid #c9d4e1;
+    }
+
+      .c-datepicker__table-heading {
+        font-weight: 900;
+        border-top: 0;
+        color: #4d4d5d;
+      }
+
+      .c-datepicker__table-cell {
+        height: 40px;
+        width: 14.285%;
+        text-align: center;
+        border-right: 1px solid #c9d4e1;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      .c-datepicker__button {
+        display: block;
+        width: 100%;
+        height: 40px;
+        border: 0;
+        background-color: transparent;
+        color: #697b97;
+
+        &--muted {
+          color: #c6cfdd;
+        }
+
+        &--current {
+          color: #00aa92;
+        }
+
+        &--selected {
+          font-size: 1.1875rem;
+          font-weight: 900;
+          background-color: #f4f6f8;
+          color: #92278f;
+        }
+      }

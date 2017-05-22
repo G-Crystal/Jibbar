@@ -1,0 +1,41 @@
+<div class="c-subpage__inner">
+  <div class="c-heading">
+    <div class="c-heading__content">
+      <h1 class="c-heading__title">{{ $ctrl.templateName }}</h1>
+      <p class="c-heading__about">Select a version to edit and reuse.</p>
+    </div>
+
+    <div class="c-heading__icon c-templates__icon"></div>
+  </div>
+
+  <ul class="c-templates-used__list o-list-bare" jibbar-templates-grid>
+    <li class="c-templates-used__item" ng-repeat="template in $ctrl.getSentTemplates()"
+        style="background-image: url('{{ template.preview }}');"
+        jibbar-templates-grid-element>
+      <div class="c-templates-used__details">
+        <div class="c-templates-used__details-text">
+          Date sent: <span class="c-templates-sent__bold">{{ template.date }}</span>
+
+          <div class="c-templates-sent__recipients">
+            Number of recipients:
+            <div class="c-templates-sent__big">{{ template.recipients }}</div>
+          </div>
+
+          <div class="c-templates-sent__rate">
+            Open rate:
+            <div class="c-templates-sent__big">{{ template.openRate }}%</div>
+          </div>
+
+          <div class="c-templates-sent__subject">
+            Subject header:
+            <div class="c-templates-sent__bold">{{ template.header }}</div>
+          </div>
+
+          <button class="c-templates-sent__button c-button c-button--white-hover">
+            Edit and reuse this template
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

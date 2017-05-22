@@ -1,0 +1,20 @@
+<div class="c-heading">
+    <div class="c-heading__content">
+        <h1 class="c-heading__title">{{ $ctrl.headingTitle }}</h1>
+        <p class="c-heading__about">{{ $ctrl.headingAbout }}</p>
+    </div>
+    <!-- <div class="c-templates-send__icon c-heading__icon c-templates-send__icon"></div> -->
+    <div class="c-heading__icon c-heading__goback">
+        <button ng-if="$ctrl.isInvoice" class="c-button" ng-click="$ctrl.generatePdf('invoiceForm','jibbar_invoice.pdf')">Download as PDF</button>
+        <button ng-if="$ctrl.isCharge" class="c-button" ng-click="$ctrl.generatePdf('chargeForm','jibbar_receipt.pdf')">Download as PDF</button>
+    	<button ng-if="!$ctrl.isBuilder" class="c-templates__control c-button c-button--empty c-button--smaller-padding" ng-click="$ctrl.goBack()">
+        Go Back
+        </button>
+        <button ng-if="$ctrl.isBuilder" class="c-templates__control c-button c-button--empty c-button--smaller-padding" ng-click="$ctrl.undoLastEdit()">
+        Undo last edit
+        </button>
+        <button ng-if="$ctrl.isBuilder" class="c-templates__control c-button c-button--empty c-button--smaller-padding" ng-click="$ctrl.openDiscardPopup()">
+        Go back to templates
+        </button>
+    </div>
+</div>

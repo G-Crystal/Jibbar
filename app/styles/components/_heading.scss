@@ -1,0 +1,45 @@
+// HEADING
+
+.c-heading {
+  display: flex;
+  align-items: center;
+  padding-bottom: 25px;
+  border-bottom: 2px solid #d6d6d6;
+
+  &--no-padding {
+    padding-bottom: 0;
+  }
+
+  &--no-border {
+    border-bottom: 0;
+  }
+}
+
+  .c-heading__content {
+    margin-right: 15px;
+  }
+
+    .c-heading__title {
+      font-size: 3.0625rem;
+      font-weight: 900;
+      color: #4d4d5d;
+    }
+
+      .c-heading__sub-title {
+        font-size: 2.25rem;
+        color: #92278f;
+      }
+
+    .c-heading__about {
+      margin-top: 8px;
+      font-size: 1.375rem;
+      font-weight: 300;
+      color: #697b97;
+    }
+
+  .c-heading__icon {
+    min-height: 100px;
+    margin-left: auto;
+    background-size: contain;
+    background-position: center;
+  }

@@ -1,0 +1,91 @@
+<div class="c-subpage__inner">
+<div class="c-templates-gallery" ng-class="{ 'c-templates-gallery--popup': $ctrl.isPopup }">
+  <ul class="c-templates-gallery__categories o-list-bare" ng-hide="$ctrl.isTesting">
+    <li class="c-templates-gallery__category" ng-repeat="category in $ctrl.templateCategories">
+      <button class="c-templates-gallery__category-button"
+              ng-class="category == $ctrl.selectedCategory ? 'c-templates-gallery__category-button--active' : ''"
+              ng-click="$ctrl.selectCategory(category)" ng-bind-html="$ctrl.toTrustedHTML(category.name)">
+       
+      </button>
+    </li>
+  </ul>
+
+  <ul class="c-templates-gallery__templates o-list-bare"
+      ng-style="{
+      height: $ctrl.getTemplatesListHeight()
+    }">
+    <li class="c-templates-gallery__template ng-animated" ng-repeat="template in $ctrl.templatesCurrent"
+        ng-style="{
+        top: $ctrl.getTemplateElementTopPosition($index),
+        left: $ctrl.getTemplateElementLeftPosition($index),
+        width: $ctrl.templatePercentWidth + '%'
+      }">
+
+      <div
+          class="c-templates-gallery__template-category c-templates-gallery__template-category--{{ template.categorySlug }}"
+          ng-if="$ctrl.isTesting"
+          ng-style="{ height: $ctrl.getTemplateTestCategoryHeight() }">
+        <div class="c-templates-gallery__template-category-container">
+          <div class="c-templates-gallery__template-category-circle">
+          <span
+              class="c-templates-gallery__template-category-icon c-templates-gallery__template-category-icon--{{ template.categorySlug }}">
+          </span>
+          </div>
+
+          <div class="c-templates-gallery__template-category-name">
+            {{ $ctrl.templateCategories[template.categorySlug].name }}
+          </div>
+          <div class="c-templates-gallery__template-category-count">
+            {{ $ctrl.templateCategories[template.categorySlug].templatesCountText }}
+          </div>
+          <div class="c-templates-gallery__template-category-about">
+            {{ $ctrl.templateCategories[template.categorySlug].description }}
+          </div>
+        </div>
+      </div>
+
+      <div class="c-templates-gallery__template-item" style="background-image: url('{{ template.preview }}');">
+        <div class="c-templates-gallery__template-details">
+          <div class="c-templates-gallery__template-about">
+            <div class="c-templates-gallery__template-columns">
+              <div class="c-templates-gallery__template-left">
+                <div class="c-templates-gallery__template-name">
+                    <a ng-click="$ctrl.openWindow(template.id)" href="javascript:void(0)">
+                        <!-- {{ template.name }} --> Preview
+                    </a>
+                </div>
+
+                <ul class="c-templates-gallery__template-devices o-list-bare">
+                  <li class="c-templates-gallery__template-device c-templates-gallery__template-device--desktop"></li>
+                  <li class="c-templates-gallery__template-device c-templates-gallery__template-device--tablet"></li>
+                  <li class="c-templates-gallery__template-device c-templates-gallery__template-device--phone"></li>
+                </ul>
+              </div>
+
+              <div class="c-templates-gallery__template-right">
+                <a class="c-templates-gallery__template-save" href="javascript:void(0)"
+                   ng-click="$ctrl.checkFavouriteAction(template)">
+                  Save as favorite
+                  <span class="c-templates-gallery__template-star"
+                        ng-class="template.is_favourite ? 'c-templates-gallery__template-star--active' : ''"></span>
+                </a>
+
+                <div class="c-templates-gallery__mobile-ready">
+                  Mobile ready
+                  <span class="c-templates-gallery__mobile-ready-tick"
+                        ng-class="template.isMobileReady ? 'c-templates-gallery__mobile-ready-tick--active' : ''"></span>
+                </div>
+              </div>
+            </div>
+
+            <button class="c-templates-gallery__button" type="submit"
+                    ui-sref="dashboard.templates.builder({ templateId: template.id })">
+              Click here to start editing now!
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>

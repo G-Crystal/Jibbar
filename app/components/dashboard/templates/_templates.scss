@@ -1,0 +1,42 @@
+jibbar-dashboard-templates {}
+
+.c-templates__icon {
+  @include svg-sprite(dashboard-templates-icon, 107px, 100px, x);
+}
+
+.c-templates__back-icon {
+  @include svg-sprite(dashboard-templates-back, 13.7px, 20px);
+  display: inline-block;
+}
+
+.c-templates__controls {
+  @include container;
+  margin-top: 10px;
+}
+
+.c-templates__controls-left {
+  float: left;
+}
+
+.c-templates__controls-right {
+  float: right;
+}
+
+.c-templates__control {
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.c-templates__title-header {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid #d6d6d6;
+
+  > form {
+    display: flex;
+    width: 100%;
+  }
+}

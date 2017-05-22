@@ -1,0 +1,178 @@
+// TEMPLATES PREPARE
+
+jibbar-dashboard-templates-prepare {
+}
+
+.c-templates-prepare {
+}
+
+  .c-templates-prepare__selected {
+    width: 550px;
+    margin-top: 20px;
+    text-align: center;
+    color: #697b97;
+  }
+  .c-templates-prepare__infobox {
+        width: 280px;
+        background-color: #E7E4E4;
+        border-radius: 6px; 
+    }
+
+.c-templates-prepare__container {
+    display: flex;
+    margin-top: 30px;
+  }
+
+.c-templates-prepare__table tr {
+    height: 28px;
+    background-color: #DEDCDC;
+    color:#341233 }
+
+// tr:nth-child(even) {
+//     background-color: #000000;
+// }
+
+.page-bottom-padding{
+  padding-bottom: 150px !important;
+}
+.c-templates-your_plan_summary_extension{
+  height: 300px !important;
+}
+.c-templates-your_plan_summary_width_extension{
+  width: 350px !important;
+}
+.c-templates-your_plan_summary{
+  width: 300px;
+  border: 1px solid #ffffff;//#00aa92;
+  background-color:  #e7e4e4; //  #ffffff;
+  border-radius: 6px; 
+  padding: 20px;
+  font-size: 14px;
+  float:left;
+   height: 220px;
+   margin-top: 20px;
+}
+.c-templates-your_plan_summary_item{
+  clear: both;
+  padding-top:20px;
+  margin-top:-20px;
+}
+.c-templates-your_order_summary-1{
+  float:left;
+  
+}
+.c-templates-your_order_summary-2{
+  width: 300px;
+  border: 1px solid #ffffff; //#00aa92;
+  background-color: #e7e4e4;
+  border-radius: 6px; 
+  padding: 20px;
+  
+  font-size: 14px;
+  clear:both;
+  height: 160px;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.c-templates-your_order_summary_item{
+  clear: both;
+  padding-top:10px;
+}
+
+
+.left-item{
+  float:left;
+  padding-left: 10px;
+}
+.right-item{
+  float:right;
+  padding-right: 10px;
+}
+.item-heading{
+  font-weight: bold;
+}
+.item-value{
+  color: #92278f;
+}
+
+.c-templates__accordion{
+  clear: both;
+  position: relative;
+  top: 50px;
+}
+
+.clickable_item{
+  cursor: pointer;
+}
+
+
+.c-templates-outside-div-button{
+  clear: both;
+  position: relative;
+  top: 10px;
+}
+
+.purple-button{
+  background-color: #6d1d6b !important;
+  border: 1px solid #6d1d6b !important;
+}
+.currency-note{
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size:11px;
+}
+.accordion__spacer{
+  clear: both;
+  margin-top: 20px;
+}
+
+.credit_card_list{
+  clear: both;
+  width: 100%;
+}
+.credit_card{
+  clear: both;
+  padding-top: 15px;
+}
+.card_type{
+  float: left;
+  width: 180px;
+  padding-left: 10px;
+}
+.card_number{
+  float: left;
+  width: 180px;
+  padding-left: 10px;
+}
+.card_expiry{
+  float: left;
+  width: 80px;
+  padding-left: 10px;
+}
+.cc_buttons{
+  float: left;
+  width: 250px;
+  padding-left: 10px;
+  margin-top: -5px;
+}
+.add-card-div{
+  clear: both;
+  position: relative;
+  top: 20px;
+  margin-bottom: 20px;
+}
+.add-credit-card{
+  cursor: pointer;
+  font-weight: bold;
+
+}
+.add-credit-card-form{
+  clear: both;
+  margin-top: 30px;
+  width: 300px;
+}
+
+.c__discard_button{
+  background-color: #d9534f;
+  border: 2px solid #d9534f;
+}

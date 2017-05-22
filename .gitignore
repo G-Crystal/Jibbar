@@ -1,0 +1,8 @@
+node_modules
+shared_modules
+.idea
+.DS_Store
+www
+app/style.css
+npm-debug.log
+app/index.html

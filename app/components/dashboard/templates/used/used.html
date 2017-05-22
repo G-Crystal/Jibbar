@@ -1,0 +1,39 @@
+<div class="c-subpage__inner">
+  <!-- <div class="c-heading">
+    <div class="c-heading__content">
+      <h1 class="c-heading__title">My used templates</h1>
+      <p class="c-heading__about">
+        Click on View emails to see what you previously sent. You can edit and reuse a template.
+      </p>
+    </div>
+
+    <div class="c-heading__icon c-templates__icon"></div>
+  </div> -->
+  <jibbar-dashboard-templates-back heading-title="My used templates" heading-about="Click on View emails to see what you previously sent. You can edit and reuse a template." step="templates"></jibbar-dashboard-templates-back>
+  <ul class="c-templates-used__list o-list-bare" jibbar-templates-grid>
+    <li class="c-templates-used__item" ng-repeat="template in $ctrl.usedTemplates"
+        style="background-image: url('{{ template.preview }}');"
+        jibbar-templates-grid-element>
+      <div class="c-templates-used__details">
+        <div class="c-templates-used__details-text">
+          You have sent
+          <div class="c-templates-used__very-big">{{ template.count }}</div>
+          Emails using this template
+
+          <div class="c-templates-used__last-used">
+            Date last used<br>
+            <div class="c-templates-used__big">{{ template.lastUsed }}</div>
+          </div>
+
+          <!-- {{ template.categoryName }}<br>
+          {{ template.name }} -->
+
+          <button class="c-templates-used__button c-button c-button--white-hover"
+                  ui-sref="dashboard.emails.sent({ templateId: template.id })">
+            View all emails using this template
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

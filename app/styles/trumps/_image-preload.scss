@@ -1,0 +1,10 @@
+// Style needed to preload image in pseudo class
+
+%image-preload {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+}

@@ -1,0 +1,6 @@
+<span class="c-letter-filter__option"
+      ng-repeat="option in $ctrl.options"
+      ng-click="$ctrl.selectOption(option)"
+      ng-class="{ 'c-letter-filter__option--active': $ctrl.isSelected(option) }">
+  {{ option }}
+</span>

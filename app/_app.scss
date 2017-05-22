@@ -1,0 +1,129 @@
+// JIBBAR
+
+jibbar {
+  display: block;
+  height: 100%;
+
+  > * {
+    height: 100%;
+  }
+}
+
+.select_override{ 
+   -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;   
+   -webkit-border-radius: 50;  /* Safari 3-4, iOS 1-3.2, Android 1.6- */    
+   -moz-border-radius: 50;  /* Firefox 1-3.6 */     
+   border-radius: 50;  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+}
+
+.c-simple-160__width{
+    width: 160px !important;
+    
+
+ }
+ .c-simple-200__width{
+    width: 200px !important;
+    
+
+ }
+
+.c-simple-60__width{
+    width: 60px !important;
+    
+
+ }
+
+ .c-simple-250__width{
+    width: 250px !important;
+    
+ }
+ .c-simple-445__width{
+    width: 445px !important;
+    
+ }
+ .c-simple-400__width{
+    width: 400px !important;
+    
+ }
+
+ .c-simple-datetime__width{
+    width: 250px !important;
+ }
+ .c-simple-datetime__highlighted{
+    color: #92278f !important;
+    
+ }
+
+ .c-simple-action__width{
+    width: 350px !important;
+ }
+ .c-simple-datetime__430width{
+    width: 430px !important;
+ }
+
+ .file-browse-button{
+    padding-top:13px;
+ }
+
+ .hand-cursor{
+    cursor: pointer !important;
+ }
+ table.excel_import_columns{
+    width: 530px;
+    margin-top:25px;
+ }
+ table.excel_import_columns tr{
+    width: 100%;
+    padding:0px;
+ }
+ table.excel_import_columns tr th{
+    border: 1px solid #999999;
+    padding: 5px;
+
+ }
+
+.c-inactive_button:disabled { background-color: #b2bccb; border-color: #b2bccb;
+    color: #fff;} 
+ 
+ .right-margin-40{
+     margin-right: 40px !important;
+ }
+
+ .c-popup-contact-add-to-group{
+    width: 828px !important;
+ }
+ .c-simple-float__right{
+   float:right !important;
+ }
+
+ .c-simple-float__left{
+   float:left !important;
+ }
+ .c-simple-height{
+   height: 40px !important;
+ }
+
+ .c-form-group__label{
+    margin-bottom: 15px !important;
+
+    padding-left: 10px !important;
+    font-size: 1.2em !important;
+ }
+ .border-1{
+   border: 1px solid #ff0000;
+ }
+ .border-2{
+   border: 1px solid #00ff00;
+ }
+ .border-3{
+   border: 1px solid #0000ff;
+ }
+ .border-4{
+   border: 1px solid #ff00ff;
+ }
+
+  .increase_top_marging{
+          margin-top: 5px;
+        }

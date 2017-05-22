@@ -1,0 +1,60 @@
+
+<div class="c-subpage__inner">
+
+<jibbar-dashboard-template-back htitle="Sending your email" habout="Nearly there!" step="send"></jibbar-dashboard-template-back>
+<div class="c-templates__controls">
+    <jibbar-dashboard-templates-progress step="'send'"></jibbar-dashboard-templates-progress>
+  </div>
+
+
+  
+
+  <div class="c-templates-send__controls c-templates__controls">
+    <div class="c-templates-send__controls-left"
+         ng-class="{ 'c-templates-send__controls-left--inline': !$ctrl.schedule }">
+     
+
+      <div class="c-templates-send__time-input c-templates-schedule__time-input c-input" ng-if="$ctrl.schedule">
+        <span class="c-templates-schedule__time-icon"></span>
+        This email is scheduled to send on:
+        <span class="c-templates-schedule__time-highlighted">
+          {{ $ctrl.schedule | date:"d MMMM yyyy 'at' h:mm a" }}
+        </span>
+      </div>
+    </div>
+
+    <button class="c-templates-send__send-button c-button"
+            ng-class="{ 'c-templates-send__send-button--inline': !$ctrl.schedule }"
+           ng-click="$ctrl.sendMail()" >
+      Confirm to send email
+    </button>
+  </div>
+
+  <div class="c-templates-send__container">
+    <h2 class="c-templates-send__sub-heading">Credits needed for this email broadcast:</h2>
+
+    <table class="c-templates-send__table c-simple-table c-simple-table--centered c-simple-table--with-header">
+      <thead>
+      <tr>
+        <th>Recipients</th>
+        <th>Credits Needed</th>
+        <th>Credits Available</th>
+        <th>Balance</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td class="c-simple-table__bold">{{ $ctrl.recipients }}</td>
+        <td class="c-simple-table__bold">{{ $ctrl.creditsNeeded }}</td>
+        <td class="c-simple-table__bold">{{ $ctrl.creditsAvailable }}</td>
+        <td class="c-simple-table__bold c-simple-table__highlighted">{{ $ctrl.balance }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2 class="c-templates-send__sub-heading c-templates-send__sub-heading--margined">
+      Broadcast Fee: <span class="c-templates-send__fee">500 credits</span>
+    </h2>
+  </div>
+</div>

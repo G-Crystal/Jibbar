@@ -1,0 +1,28 @@
+// Svg Sprite
+
+@mixin svg-sprite($name, $width, $height, $cover: y) {
+  $sprite: map-get($icons, sprite);
+  $icon: map-get($icons, $name);
+
+  $proportionX: $width / map-get($icon, width);
+  $proportionY: $height / map-get($icon, height);
+
+  $proportion: null;
+  $marginX: 0;
+  $marginY: 0;
+
+  @if $cover == y {
+    $proportion: $proportionY;
+    $marginX: ($proportionY * map-get($icon, width) - $width) / 2;
+  }
+  @else {
+    $proportion: $proportionX;
+    $marginY: ($proportionX * map-get($icon, height) - $height) / 2;
+  }
+
+  width: $width;
+  height: $height;
+  background-image: url(map-get($sprite, svgPath));
+  background-position: ($proportion * map-get($icon, backgroundX) - $marginX) ($proportion * map-get($icon, backgroundY) - $marginY);
+  background-size: $proportion * map-get($sprite, width) $proportion * map-get($sprite, height);
+}

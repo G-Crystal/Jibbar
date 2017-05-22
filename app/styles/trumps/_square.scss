@@ -1,0 +1,9 @@
+// It makes object height the same as it's width
+
+%square {
+  &:after {
+    content: ' ';
+    display: block;
+    padding-bottom: 100%;
+  }
+}

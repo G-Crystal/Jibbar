@@ -1,0 +1,74 @@
+// TEMPLATES SEND
+
+jibbar-dashboard-templates-send {
+}
+
+.c-templates-send {
+}
+
+  .c-templates-send__icon {
+    @include svg-sprite(dashboard-templates-send-icon, 112px, 100px, x);
+  }
+
+  .c-templates-send__controls {
+    @include desktopS {
+      display: flex;
+    }
+  }
+
+    .c-templates-send__controls-left {
+      display: flex;
+      flex-grow: 1;
+
+      &--inline {
+        display: inline-block;
+      }
+    }
+
+      .c-templates-send__time-input {
+        width: 1%;
+
+        @include desktopS {
+          max-width: 739px;
+          margin-right: 20px;
+        }
+      }
+
+    .c-templates-send__send-button {
+      float: right;
+      margin: 15px 0 0 auto;
+
+      @include desktopS {
+        margin-top: 0;
+      }
+
+      &--inline {
+        margin-top: 0;
+      }
+    }
+
+  .c-templates-send__container {
+    margin-top: 34px;
+  }
+
+    .c-templates-send__sub-heading {
+      color: #4d4d5d;
+      font-size: 1.5rem;
+      font-weight: 900;
+
+      &--margined {
+        margin-top: 50px;
+      }
+    }
+
+    .c-templates-send__table {
+      width: 550px;
+      margin-top: 25px;
+    }
+
+      .c-templates-send__fee {
+        display: inline-block;
+        margin-left: 60px;
+        font-weight: 400;
+        color: #92278f;
+      }

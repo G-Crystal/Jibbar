@@ -1,0 +1,22 @@
+<div class="c-select__value" title="{{ $ctrl.selectEmptyValue }}" ng-click="$ctrl.openOptions()">
+  <input class="c-select__filter" type="text" ng-model="$ctrl.filterValue"
+         ng-class="{'c-select__filter--hidden': !$ctrl.filterValue.length}">
+  <div class="c-select__active-value"
+       ng-hide="$ctrl.filterValue.length">
+    {{ $ctrl.getOptionName($ctrl.selectedOption) || $ctrl.selectEmptyValue }}
+  </div>
+  <span class="c-select__arrow"></span>
+</div>
+
+<div class="c-select__options-wrapper">
+  <ul class="c-select__options o-list-bare" ng-show="$ctrl.isOpened">
+    <li class="c-select__option"
+        ng-repeat="option in $ctrl.selectOptions | jibbarSelectFilter:$ctrl.filterValue:$ctrl.selectNameKey">
+      <a class="c-select__link" href="javascript:void(0)"
+         ng-class="{'c-select__link--active': $ctrl.selectedOption == option}"
+         ng-click="$ctrl.selectOption(option)">
+        {{ $ctrl.getOptionName(option) }}
+      </a>
+    </li>
+  </ul>
+</div>

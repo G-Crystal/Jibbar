@@ -1,0 +1,37 @@
+<h2 class="c-home__forms-heading">Create an account with Jibbar!</h2>
+<form class="c-home__forms-form" name="signUpForm" >
+  <div class="c-home__forms-horizontal-group">
+    <div class="c-home__forms-group" ng-class="{ 'has-error' : signUpForm.firstName.$invalid && (!signUpForm.firstName.$pristine || signUpForm.firstName.$touched) }">
+      <input class="c-home__forms-input" name="firstName" type="text" ng-model="$ctrl.user.name" placeholder="what’s your first name?"
+        required>
+      <div class="help-block" ng-messages="signUpForm.firstName.$error" ng-if="signUpForm.firstName.$invalid && (!signUpForm.firstName.$pristine || signUpForm.firstName.$touched)">
+        <p ng-message="required">First name required.</p>
+      </div>
+    </div>
+    <div class="c-home__forms-group">
+      <input class="c-home__forms-input" type="text" ng-model="$ctrl.user.surname" placeholder="what’s your last name?">
+    </div>
+  </div>
+  <div class="c-home__forms-horizontal-group">
+    <div class="c-home__forms-group" ng-class="{ 'has-error' : signUpForm.email.$invalid && (!signUpForm.email.$pristine || signUpForm.email.$touched) }">
+      <input class="c-home__forms-input" type="email" name="email" ng-model="$ctrl.user.emailAddress" placeholder="what’s your email address?"
+        required>
+      <div class="help-block" ng-messages="signUpForm.email.$error" ng-if="signUpForm.email.$invalid && (!signUpForm.email.$pristine || signUpForm.email.$touched)">
+        <p ng-message="required">Valid Email address required.</p>
+      </div>
+    </div>
+    <div class="c-home__forms-group" ng-class="{ 'has-error' : signUpForm.password.$invalid && (!signUpForm.password.$pristine || signUpForm.password.$touched) }">
+      <input class="c-home__forms-input" type="password" name="password" ng-model="$ctrl.user.password" placeholder="please choose a password?"
+        required>
+        <div class="help-block" ng-messages="signUpForm.password.$error" ng-if="signUpForm.password.$invalid && (!signUpForm.password.$pristine || signUpForm.password.$touched)">
+        <p ng-message="required">Valid password required.</p>
+      </div>
+    </div>
+  </div>
+  <!--<div class="c-home__forms-group">
+    <div class="c-home__forms-captcha" vc-recaptcha key="$ctrl.recaptchaKey"></div>
+  </div>-->
+  <div class="c-home__forms-group">
+    <button class="c-home__forms-button" ng-click="$ctrl.addNewUser(signUpForm)" type="submit">Create my account</button>
+  </div>
+</form>

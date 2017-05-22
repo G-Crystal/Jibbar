@@ -1,0 +1,67 @@
+// TEMPLATES PREVIEW
+
+jibbar-dashboard-templates-preview {
+}
+
+.c-templates-preview {
+}
+
+  .c-templates-preview__container {
+    display: flex;
+    padding: 40px 30px;
+    border-top: 2px solid #b2bccb;
+    background-color: #252930;
+
+    @include desktopXL {
+      padding: 40px;
+    }
+  }
+
+    .c-templates-preview__left {
+      width: 1%;
+      flex-grow: 1;
+    }
+
+      .c-templates-preview__iframe {
+        display: block;
+        width: 804px;
+        max-width: 100%;
+        margin: 0 auto;
+        border: 2px solid #b2bccb;
+        box-shadow: 0 0 27px rgba(0, 0, 0, .14);
+      }
+
+    .c-templates-preview__right {
+      width: 250px;
+      margin-left: 35px;
+      font-size: 1.125rem;
+      color: #fff;
+    }
+
+      .c-templates-preview__list-heading {
+        margin-top: 5px;
+        font-size: 1.125rem;
+        font-weight: 900;
+      }
+
+      .c-templates-preview__list {
+        margin-top: 8px;
+      }
+
+        .c-templates-preview__device {
+          font-weight: 300;
+          line-height: 38px;
+        }
+
+          .c-templates-preview__status {
+            display: inline-block;
+            width: 20px;
+            height: 14px;
+            margin-right: 5px;
+            background-size: contain;
+            background-position: center;
+
+            &--tick {
+              background-image: url('images/icon-tick-green.svg');
+            }
+          }

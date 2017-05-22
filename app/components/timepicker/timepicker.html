@@ -1,0 +1,104 @@
+<div class="c-timepicker">
+  <table class="c-timepicker__table">
+    <tbody>
+    <tr class="c-timepicker__spinners" ng-show="::showSpinners">
+      <td>
+        <a class="c-timepicker__arrow" href="javascript:void(0)" tabindex="-1"
+           ng-click="incrementHours()"
+           ng-class="{disabled: noIncrementHours()}"
+           ng-disabled="noIncrementHours()"></a>
+      </td>
+      <td>&nbsp;</td>
+      <td>
+        <a class="c-timepicker__arrow" href="javascript:void(0)" tabindex="-1"
+           ng-click="incrementMinutes()"
+           ng-class="{disabled: noIncrementMinutes()}"
+           ng-disabled="noIncrementMinutes()"></a>
+      </td>
+      <td ng-show="showSeconds">&nbsp;</td>
+      <td ng-show="showSeconds">
+        <a class="c-timepicker__arrow" href="javascript:void(0)" tabindex="-1"
+           ng-click="incrementSeconds()"
+           ng-class="{disabled: noIncrementSeconds()}"
+           ng-disabled="noIncrementSeconds()"></a>
+      </td>
+      <td ng-show="showMeridian">
+        <a class="c-timepicker__arrow" href="javascript:void(0)" tabindex="-1"
+           ng-click="meridian == 'PM' && toggleMeridian()"></a>
+      </td>
+    </tr>
+
+    <tr class="c-timepicker__shadow" ng-show="::showSpinners">
+      <td>{{ hours | nextHour }}</td>
+      <td class="c-timepicker__colon">:</td>
+      <td>{{ minutes | nextMinute }}</td>
+      <td class="c-timepicker__colon" ng-show="showSeconds">:</td>
+      <td ng-show="showSeconds">{{ seconds | nextMinute }}</td>
+      <td class="c-timepicker__meridian-shadow" ng-show="showMeridian" ng-bind="meridian == 'PM' ? 'AM' : ''"></td>
+    </tr>
+
+    <tr>
+      <td class="form-group uib-time hours" ng-class="{'has-error': invalidHours}">
+        <input class="c-timepicker__input" type="text" placeholder="HH" ng-model="hours" ng-change="updateHours()"
+               ng-readonly="::readonlyInput" maxlength="2" tabindex="{{::tabindex}}"
+               ng-disabled="noIncrementHours()" ng-blur="blur()">
+      </td>
+      <td class="c-timepicker__colon">:</td>
+      <td class="form-group uib-time minutes" ng-class="{'has-error': invalidMinutes}">
+        <input class="c-timepicker__input" type="text" placeholder="MM" ng-model="minutes" ng-change="updateMinutes()"
+               ng-readonly="::readonlyInput" maxlength="2" tabindex="{{::tabindex}}"
+               ng-disabled="noIncrementMinutes()" ng-blur="blur()">
+      </td>
+      <td class="c-timepicker__colon" ng-show="showSeconds">:</td>
+      <td class="form-group uib-time seconds" ng-class="{'has-error': invalidSeconds}" ng-show="showSeconds">
+        <input class="c-timepicker__input" type="text" placeholder="SS" ng-model="seconds" ng-change="updateSeconds()"
+               ng-readonly="readonlyInput" maxlength="2" tabindex="{{::tabindex}}"
+               ng-disabled="noIncrementSeconds()" ng-blur="blur()">
+      </td>
+      <td ng-show="showMeridian" class="uib-time am-pm">
+        <button class="c-timepicker__input c-timepicker__input--button" type="button"
+                ng-class="{disabled: noToggleMeridian()}"
+                ng-click="toggleMeridian()" ng-disabled="noToggleMeridian()" tabindex="{{::tabindex}}">
+          {{meridian}}
+        </button>
+      </td>
+    </tr>
+
+    <tr class="c-timepicker__shadow" ng-show="::showSpinners">
+      <td>{{ hours | previousHour }}</td>
+      <td class="c-timepicker__colon">:</td>
+      <td>{{ minutes | previousMinute }}</td>
+      <td class="c-timepicker__colon" ng-show="showSeconds">:</td>
+      <td ng-show="showSeconds">{{ seconds | previousMinute }}</td>
+      <td class="c-timepicker__meridian-shadow" ng-show="showMeridian" ng-bind="meridian == 'AM' ? 'PM' : ''"></td>
+    </tr>
+
+    <tr class="c-timepicker__spinners" ng-show="::showSpinners">
+      <td>
+        <a class="c-timepicker__arrow c-timepicker__arrow--down" href="javascript:void(0)" tabindex="-1"
+           ng-click="decrementHours()"
+           ng-class="{disabled: noDecrementHours()}"
+           ng-disabled="noDecrementHours()"></a>
+      </td>
+      <td>&nbsp;</td>
+      <td>
+        <a class="c-timepicker__arrow c-timepicker__arrow--down" href="javascript:void(0)" tabindex="-1"
+           ng-click="decrementMinutes()"
+           ng-class="{disabled: noDecrementMinutes()}"
+           ng-disabled="noDecrementMinutes()"></a>
+      </td>
+      <td ng-show="showSeconds">&nbsp;</td>
+      <td ng-show="showSeconds">
+        <a class="c-timepicker__arrow c-timepicker__arrow--down" href="javascript:void(0)" tabindex="-1"
+           ng-click="decrementSeconds()"
+           ng-class="{disabled: noDecrementSeconds()}"
+           ng-disabled="noDecrementSeconds()"></a>
+      </td>
+      <td ng-show="showMeridian">
+        <a class="c-timepicker__arrow c-timepicker__arrow--down" href="javascript:void(0)" tabindex="-1"
+           ng-click="meridian == 'AM' && toggleMeridian()"></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

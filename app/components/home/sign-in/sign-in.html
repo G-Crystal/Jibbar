@@ -1,0 +1,47 @@
+<h2 class="c-home__forms-heading">Welcome back to Jibbar!</h2>
+<form class="c-home__forms-form" name="signInForm">
+  <div class="c-home__forms-group">
+    <input class="c-home__forms-input" value="Default" type="hidden" ng-model="$ctrl.user.tenancyName" placeholder="what’s  your tenant?">
+  </div>
+  <div class="c-home__forms-group" ng-class="{ 'has-error' : signInForm.userName.$invalid && (!signInForm.userName.$pristine || signInForm.userName.$touched) }">
+    <input class="c-home__forms-input" name="userName" type="text" ng-model="$ctrl.user.usernameOrEmailAddress" placeholder="what’s your email address?"
+      required>
+    <div class="help-block" ng-messages="signInForm.userName.$error" ng-if="signInForm.userName.$invalid && (!signInForm.userName.$pristine || signInForm.userName.$touched)">
+      <p ng-message="required">User name/Email required.</p>
+    </div>
+  </div>
+  <div class="c-home__forms-group" ng-class="{ 'has-error' : signInForm.password.$invalid && (!signInForm.password.$pristine || signInForm.password.$touched) }">
+    <input class="c-home__forms-input" name="password" type="password" ng-model="$ctrl.user.password" placeholder="what’s your email password?"
+      required>
+    <div class="help-block" ng-messages="signInForm.password.$error" ng-if="signInForm.password.$invalid && (!signInForm.password.$pristine || signInForm.password.$touched)">
+      <p ng-message="required">Password required.</p>
+    </div>
+  </div>
+  <div class="c-home__forms-group c-home-sign-in__buttons">
+    <button class="c-home-sign-in__button c-home__forms-button" ng-click="$ctrl.signIn(signInForm)" type="submit">Sign in
+    </button>
+    <a class="c-home-sign-in__recovery" ui-sref="home.forgot-password">Forgot password?</a>
+  </div>
+  <!-- <div class="c-home__forms-group c-home-sign-in__social">
+    <div class="c-home-sign-in__social-label">Or sign in with:</div>
+    <ul class="c-home-sign-in__social-services o-list-bare">
+      <li>
+        <a class="c-home-sign-in__social-service c-home-sign-in__social-service--google" href="#"></a>
+      </li>
+      <li>
+        <a class="c-home-sign-in__social-service c-home-sign-in__social-service--twitter" href="#"></a>
+      </li>
+      <li>
+        <a class="c-home-sign-in__social-service c-home-sign-in__social-service--facebook" href="#"></a>
+      </li>
+    </ul>
+  </div> -->
+  <div class="c-home__forms-group c-home-sign-in__links">
+    <div class="c-home-sign-in__links-left">
+      <a class="c-home-sign-in__link"  href="javascript:void(0)" ng-click="$ctrl.navigateToSignUp()">Not registered? Create an account</a>
+    </div>
+    <div class="c-home-sign-in__links-right">
+      <a class="c-home-sign-in__link" ui-sref="home.email-activation">Email activation</a>
+    </div>
+  </div>
+</form>

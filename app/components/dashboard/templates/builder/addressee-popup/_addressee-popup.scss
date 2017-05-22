@@ -1,0 +1,20 @@
+// ADDRESSEE POPUP
+
+jibbar-dashboard-templates-builder-addressee-popup {
+}
+
+.c-builder-addressee {
+
+}
+
+  .c-builder-addressee__prefix {
+    width: 133px;
+  }
+
+  .c-builder-addressee__reply-link {
+    margin: 20px 0 76px;
+
+    &--active {
+      margin-bottom: 0;
+    }
+  }

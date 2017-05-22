@@ -1,0 +1,131 @@
+// SIGN IN
+
+jibbar-home-sign-in {
+}
+
+.c-home-sign-in {
+}
+
+  .c-home-sign-in__buttons {
+    @include container;
+    width: 363px;
+    max-width: 100%;
+  }
+
+    .c-home-sign-in__button {
+      float: left;
+      padding: 0 45px;
+    }
+
+    .c-home-sign-in__recovery {
+      float: right;
+      margin-top: 16px;
+      font-size: .875rem;
+      text-decoration: none;
+      color: #d896d6;
+      transition: opacity .2s;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+
+
+  .c-home-sign-in__social {
+    @include container;
+    display: block;
+    width: 351px;
+    max-width: 100%;
+    margin-top: 26px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 22px 0;
+    border-top: 1px solid rgba(255, 255, 255, .31);
+    border-bottom: 1px solid rgba(255, 255, 255, .31);
+  }
+
+    .c-home-sign-in__social-label {
+      float: left;
+      margin-top: 17px;
+      font-size: .9375rem;
+      font-weight: 900;
+    }
+
+    .c-home-sign-in__social-services {
+      float: right;
+      text-align: right;
+
+      > li {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+
+        @include mobileM {
+          margin-right: 10px;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+      .c-home-sign-in__social-service {
+        display: inline-block;
+        transition: opacity .2s;
+        background-size: contain;
+
+        &:hover {
+          opacity: .5;
+        }
+
+        &--facebook { @include svg-sprite(home-social-facebook, 48px, 48px); }
+        &--google { @include svg-sprite(home-social-google, 48px, 48px); }
+        &--twitter { @include svg-sprite(home-social-twitter, 48px, 48px); }
+      }
+
+
+  .c-home-sign-in__links {
+    @include container;
+    display: block;
+    width: 351px;
+    max-width: 100%;
+    margin-top: 29px;
+    text-align: left;
+  }
+
+    .c-home-sign-in__links-left {
+      margin-bottom: 5px;
+
+      @include mobileL {
+        @include span(7.9 of 12 inside no-gutters);
+        position: relative;
+        margin-bottom: 0;
+        text-align: left;
+
+        &:after {
+          position: absolute;
+          right: 0;
+          content: '|';
+          color: #d896d6;
+        }
+      }
+    }
+
+    .c-home-sign-in__links-right {
+      @include mobileL {
+        @include span(4.1 of 12 inside no-gutters);
+        text-align: right;
+      }
+    }
+
+      .c-home-sign-in__link {
+        font-size: .875rem;
+        text-decoration: none;
+        color: #fff;
+        transition: opacity .2s;
+
+        &:hover {
+          opacity: .5;
+        }
+      }

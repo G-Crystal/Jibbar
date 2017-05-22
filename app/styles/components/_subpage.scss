@@ -1,0 +1,26 @@
+// SUBPAGE
+
+.c-subpage {
+  > * {
+    min-height: 100%;
+  }
+}
+
+  .c-subpage__inner {
+    padding: 30px;
+
+    @include desktopXL {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+    .c-subpage__container {
+      margin-top: 36px;
+    }
+
+      .c-subpage__sub-heading {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: #4d4d5d;
+      }

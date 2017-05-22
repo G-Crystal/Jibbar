@@ -1,0 +1,36 @@
+// DASHBOARD
+
+$dashboard-sidebar-width: 241px;
+$dashboard-top-menu-height: 83px;
+
+jibbar-dashboard {
+  position: relative;
+  display: block;
+  min-width: 768px;
+  min-height: 100%;
+}
+
+  // CONTENT
+  .c-dashboard__content {
+    padding-top: $dashboard-top-menu-height;
+
+    @include desktopL {
+      padding-left: $dashboard-sidebar-width;
+
+      .c-dashboard-sidebar--hidden & {
+        padding-left: 0;
+      }
+    }
+  }
+
+.date_cell{
+  width: 170px !important;
+  min-width: 170px !important;
+}
+.subject_cell{
+  
+}
+.small_cell{
+  width: 120px !important;
+  min-width: 120px !important;
+}

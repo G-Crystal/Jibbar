@@ -1,0 +1,99 @@
+// SELECT
+
+jibbar-select {
+  position: relative;
+  display: block;
+}
+
+  .c-select__filter {
+    font-size: 1.125rem;
+    border: 0;
+
+    &--hidden {
+      position: absolute;
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .c-select__value {
+    position: relative;
+    height: 46px;
+    padding: 0 45px 0 26px;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 40px;
+    color: darken(#697c98, 10%);
+    background-color: #fff;
+    border: 2px solid #abbacc;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 2;
+
+    &:hover {
+      .c-select__arrow {
+        opacity: .5;
+      }
+    }
+  }
+
+    .c-select__active-value {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .c-select__arrow {
+      @include svg-sprite(select-arrow, 22px, 15px);
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      transition: opacity .2s;
+    }
+
+  .c-select__options-wrapper {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 0 26px;
+    z-index: 1;
+  }
+
+    .c-select__options {
+      overflow: auto;
+      max-height: 260px;
+      padding: 10px 12px 12px;
+      background-color: #fff;
+      border: 2px solid #8192ac;
+      border-top: 0;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.51);
+    }
+
+      .c-select__option {
+        margin-bottom: 5px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      a.c-select__link {
+        color: #4d4d5d;
+        transition: opacity .2s;
+
+        &:hover {
+          opacity: .5;
+        }
+
+        &--active {
+          color: #6d1d6b;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }

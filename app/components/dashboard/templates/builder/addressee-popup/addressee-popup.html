@@ -1,0 +1,36 @@
+<jibbar-popup popup-id="'builder-addressee'" popup-on-link="$ctrl.onPopupLink()">
+  <h2 class="c-popup__heading">Let’s get started creating your email!</h2>
+
+  <div class="c-popup__separator"></div>
+
+  <form name="mailInfoForm">
+    <div class="c-popup__form-group c-form-group c-form-group--flex">
+      <input class="c-input" type="text" ng-model="$ctrl.emailData.subject" placeholder="What is your email’s subject line?" required>
+    </div>
+    <div class="c-popup__form-group c-form-group c-form-group--flex">
+      <div class="c-builder-addressee__prefix c-input-prefix">From name:</div>
+      <input class="c-input c-input--prefixed" type="text" ng-model="$ctrl.emailData.fromName" placeholder="Type a name here" required>
+    </div>
+    <div class="c-popup__form-group c-form-group c-form-group--flex">
+      <div class="c-builder-addressee__prefix c-input-prefix">From email:</div>
+      <input class="c-input c-input--prefixed" type="email" ng-model="$ctrl.emailData.from" placeholder="Type an address here" required>
+    </div>
+    <div class="c-popup__form-group c-form-group c-form-group--flex" ng-if="$ctrl.differentReplyToEmail">
+      <div class="c-builder-addressee__prefix c-input-prefix">Reply to:</div>
+      <input class="c-input c-input--prefixed" ng-model="$ctrl.emailData.replyTo" type="email" placeholder="Type an address here" required>
+    </div>
+  </form>
+
+  <div class="o-center">
+    <a class="c-builder-addressee__reply-link c-popup__small-link" href="javascript:void(0)"
+       ng-class="{'c-builder-addressee__reply-link--active': $ctrl.differentReplyToEmail}"
+       ng-click="$ctrl.differentReplyToEmail = !$ctrl.differentReplyToEmail">
+      <span ng-if="!$ctrl.differentReplyToEmail">Would you like a different ‘reply to’ address?</span>
+      <span ng-if="$ctrl.differentReplyToEmail">I've changed my mind.</span>
+    </a>
+
+    <div class="c-popup__separator"></div>
+
+    <button class="c-button" jibbar-popup-close="" ng-click="$ctrl.saveEmailInfo(mailInfoForm)">Start composing now!</button>
+  </div>
+</jibbar-popup>

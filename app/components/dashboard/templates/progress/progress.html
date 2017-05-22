@@ -1,0 +1,31 @@
+
+<div class="c-templates-progress">
+  
+
+  <button class="c-templates__control c-button c-button--smaller-padding" ui-sref="dashboard.templates.builder" ng-class="{'c-templates-progress__item--active': $ctrl.isActive('compose')}">Edit message</button>
+  
+ 
+
+  <button class="c-templates__control c-button c-button--smaller-padding" ui-sref="dashboard.templates.preview" ng-class="{'c-templates-progress__item--active': $ctrl.isActive('preview')}">
+        Preview
+      </button>
+
+
+  
+</div>
+
+<div class="c-templates-progress" style="float:left;">
+<button class="c-templates__control c-button c-button--empty c-button--smaller-padding" jibbar-popup-open="'templates-test'" ng-show="$ctrl.send_test_button">
+        Send a test email
+  </button>
+  
+  
+    <button class="c-templates__control c-button c-button--smaller-padding" ng-click="$ctrl.saveDraft()" ng-show="$ctrl.view_recipient_button">Save draft</button>
+</div>
+
+<div class="c-templates-progress" style="float:left;">
+
+
+</div>
+
+<jibbar-dashboard-templates-prepare-discard-popup></jibbar-dashboard-templates-prepare-discard-popup>

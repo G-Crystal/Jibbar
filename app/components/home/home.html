@@ -1,0 +1,265 @@
+<div class="c-home__forms">
+  <a class="c-home__forms-close" ui-sref="home"></a>
+
+  <div class="c-home__forms-item ng-animated" ui-view></div>
+</div>
+<!-- c-home__forms -->
+
+
+<div class="c-home__top">
+  <nav class="c-home__nav o-list-bare">
+    <ul>
+      <li class="c-home__nav-item"><a href="javascript:void(0)" ng-click="$ctrl.scrollToPricing()">Pricing</a></li>
+      <li class="c-home__nav-item"><a href="javascript:void(0)" ng-click="$ctrl.navigateToSignUp()">Free Trial</a></li>
+      <li class="c-home__nav-item c-home__nav-item--bordered"><a ui-sref="home.sign-in">Sign in</a></li>
+    </ul>
+  </nav>
+
+  <div class="c-home__top-logo-wrapper">
+    <div class="c-home__top-logo">
+      <img src="images/logo.png" alt="Jibbar">
+    </div>
+    <div class="c-home__top-logo-text">Quick and easy beautiful email</div>
+  </div>
+
+  <div class="c-home__top-big-text">Impress [everyone]</div>
+
+  <div class="c-home__top-bottom">
+    <h3 class="c-home__top-title">Ready-to-use email templates</h3>
+
+    <div class="c-home__top-about">
+      Professional designs to grow your business
+    </div>
+    <a class="c-home__top-button c-home__button c-home__button--green" href="javascript:void(0)" jibbar-popup-open="'templates-gallery'">
+            View our template gallery
+        </a>
+  </div>
+
+  <a class="c-home__top-arrow" href="javascript:void(0)" ng-click="$ctrl.scrollBelowHeader()"></a>
+</div>
+<!-- / c-home__top -->
+
+
+<div class="c-home__templates c-home__section">
+  <h2 class="c-home__heading">Email templates for every business</h2>
+
+  <p class="c-home__templates-about">Professionally designed, responsive, mobile-ready templates.</p>
+
+  <div class="c-home__templates-screens"></div>
+
+  <ul class="c-home__templates-list o-list-bare">
+    <li class="c-home__templates-item" ng-repeat="type in $ctrl.getTemplateTypes()">
+      <div class="c-home__templates-circle">
+        <span class="c-home__templates-icon c-home__templates-icon--{{ type[0] }}"></span>
+      </div>
+
+      <div class="c-home__templates-name">{{ type[1] }}</div>
+    </li>
+  </ul>
+
+  <div class="c-home__templates-buttons">
+    <!-- <a class="c-home__templates-button c-home__button c-home__button--filled" href="#">Send a test email now!</a> -->
+    <a class="c-home__templates-button c-home__button" href="javascript:void(0)" jibbar-popup-open="'templates-gallery'">
+      View our template gallery
+    </a>
+  </div>
+</div>
+<!-- / c-home__templates -->
+
+
+<div class="c-home__steps c-home__section">
+  <h2 class="c-home__heading c-home__steps-heading">Beautiful emails by you... in seconds.</h2>
+
+  <ul class="c-home__steps-list o-list-bare">
+    <li class="c-home__steps-item">
+      <div class="c-home__steps-circle"><span class="c-home__steps-icon c-home__steps-icon--document"></span></div>
+      <div class="c-home__steps-name">Select your template</div>
+      <div class="c-home__steps-about">
+        World-class designers have created the largest gallery of beautiful email templates in the world.
+      </div>
+    </li>
+    <li class="c-home__steps-dots">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </li>
+    <li class="c-home__steps-item">
+      <div class="c-home__steps-circle"><span class="c-home__steps-icon c-home__steps-icon--pencil"></span></div>
+      <div class="c-home__steps-name">Write your copy</div>
+      <div class="c-home__steps-about">
+        Simply edit your copy within our template using our custom designed email builder.
+      </div>
+    </li>
+    <li class="c-home__steps-dots">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </li>
+    <li class="c-home__steps-item">
+      <div class="c-home__steps-circle"><span class="c-home__steps-icon c-home__steps-icon--image"></span></div>
+      <div class="c-home__steps-name">Add your images</div>
+      <div class="c-home__steps-about">
+        Upload images, logos or graphics and link to your website to drive reader interaction
+      </div>
+    </li>
+    <li class="c-home__steps-dots">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </li>
+    <li class="c-home__steps-item">
+      <div class="c-home__steps-circle"><span class="c-home__steps-icon c-home__steps-icon--send"></span></div>
+      <div class="c-home__steps-name">Add recipients and send!</div>
+      <div class="c-home__steps-about">
+        That’s it. The fastest and easiest way to create and send stunning email, which get results!
+      </div>
+    </li>
+  </ul>
+
+  <a class="c-home__steps-button c-home__button c-home__button--white" href="#">Sign up and receive free credits!</a>
+</div>
+<!-- / c-home__steps -->
+
+
+<div class="c-home__who c-home__section">
+  <h2 class="c-home__heading">Who should use Jibbar?</h2>
+
+  <div class="c-home__who-description">
+    When you need to create and send quickly, or if you don’t have the budgets for designers and developers, then Jibbar’s a
+    perfect solution. We’ve already done all the design and html work! In seconds you can select a pre-formatted template
+    and send a beautiful email which will impress your contacts, dramatically increase open rates and make your email messages
+    more effective.
+  </div>
+
+  <ul class="c-home__who-list o-list-bare">
+    <li class="c-home__who-item" ng-repeat="item in $ctrl.getWhoList()">
+      <div class="c-home__who-name">{{ item[1] }}</div>
+      <div class="c-home__who-icon c-home__who-icon--{{ item[0] }}"></div>
+      <div class="c-home__who-about">{{ item[2] }}</div>
+    </li>
+  </ul>
+
+  <div class="c-home__who-bottom">
+    <div class="c-home__who-text">When you need quick, easy & impressive email</div>
+
+    <a class="c-home__who-button c-home__button c-home__button--green" href="">Try Jibbar now for free</a>
+  </div>
+</div>
+<!-- / c-home__who -->
+
+
+<div class="c-home__how c-home__section">
+  <div class="c-home__how-section c-home__how-section--first">
+    <h2 class="c-home__how-heading c-home__heading">Product Features include:</h2>
+  </div>
+
+  <div class="c-home__how-section c-home__how-section--second">
+    <h3 class="c-home__how-name">Analytics</h3>
+    <p class="c-home__how-description">
+      Keep track of how your emails perform from your dashboard. From open and click through rates, everything you need is here.
+    </p>
+  </div>
+
+  <div class="c-home__how-section c-home__how-section--third">
+    <h3 class="c-home__how-name">Email scheduling and free image library</h3>
+    <p class="c-home__how-description">
+      Set up emails to send anytime day or night weeks in advance. Auto-image and logo saving and free image library included.
+    </p>
+  </div>
+
+  <div class="c-home__how-section c-home__how-section--fourth">
+    <h3 class="c-home__how-name">Bulk contacts import</h3>
+    <p class="c-home__how-description">
+      One click import of your address book and bulk CSV file import of lists. Create unlimited email broadcast groups.
+    </p>
+  </div>
+
+  <div class="c-home__how-section c-home__how-section--last">
+    <div class="c-home__how-text">….and so much more!</div>
+
+    <a class="c-home__how-button c-home__button c-home__button--green" href="">Sign up and receive free credits!</a>
+  </div>
+</div>
+<!-- / c-home__how -->
+
+
+<div class="c-home__pricing c-home__section">
+  <h2 class="c-home__heading">Our pricing.</h2>
+
+  <div class="c-home__pricing-table-wrapper">
+    <table class="c-home__pricing-table">
+      <thead>
+        <tr>
+          <th>Test Drive</th>
+          <th>Pay As You Go</th>
+          <th>Bronze<br>Monthly Plan</th>
+          <th>Silver<br>Monthly Plan</th>
+          <th>Gold<br>Monthly Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="p in $ctrl.getPricingTable()">
+          <td ng-switch="$ctrl.isString(p[i])" ng-repeat="i in [0, 1, 2, 3, 4]">
+            <span ng-switch-when="true" ng-bind-html="p[i]"></span>
+            <span class="c-home__pricing-check" ng-switch-when="false" ng-if="p[i]"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><a class="c-home__pricing-button c-home__button c-home__button--filled" href="#">Select!</a></td>
+          <td><a class="c-home__pricing-button c-home__button c-home__button--filled" href="#">Select!</a></td>
+          <td><a class="c-home__pricing-button c-home__button c-home__button--filled" href="#">Select!</a></td>
+          <td><a class="c-home__pricing-button c-home__button c-home__button--filled" href="#">Select!</a></td>
+          <td><a class="c-home__pricing-button c-home__button c-home__button--filled" href="#">Select!</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="c-home__pricing-table">
+
+      <tbody>
+        <tr>
+          <td style="border:0px;text-align: left;">
+
+            *All prices are in USD
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<!-- / c-home__pricing -->
+
+
+<div class="c-home__footer">
+  <div class="c-home__footer-contact">
+    <div class="c-home__footer-logo">
+      <img src="images/logo.svg" alt="Jibbar">
+    </div>
+
+    <ul class="c-home__social-list o-list-bare">
+      <li class="c-home__social-item">
+        <a class="c-home__social-link c-home__social-link--linkedin" href="#"></a>
+      </li>
+      <li class="c-home__social-item">
+        <a class="c-home__social-link c-home__social-link--facebook" href="#"></a>
+      </li>
+      <li class="c-home__social-item">
+        <a class="c-home__social-link c-home__social-link--instagram" href="#"></a>
+      </li>
+    </ul>
+
+    <div class="c-home__footer-copyrights">
+      © 2016 Jibber Pty. Ltd.<br> All rights reserved.
+    </div>
+  </div>
+
+  <div class="c-home__footer-menu">
+    <ul class="o-list-bare">
+      <li class="c-home__footer-link"><a href="#">Blog</a></li>
+      <li class="c-home__footer-link"><a href="#">Designer’s Toolkit</a></li>
+      <li class="c-home__footer-link"><a href="#">Support</a></li>
+      <li class="c-home__footer-link"><a href="#">Contact Us</a></li>
+      <li class="c-home__footer-link"><a href="#">Terms & Conditions</a></li>
+      <li class="c-home__footer-link"><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+</div>
+<!-- / c-home__footer -->

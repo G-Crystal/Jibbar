@@ -1,0 +1,13 @@
+.progress-icon-container{
+	display: inline;
+	width: 20px;
+	height: 20px;
+	padding-top: 5px;
+}
+
+.progress-icon-container .tick-path, 
+.progress-icon-container .tick, 
+.progress-icon-container .tick-outline-path, 
+.progress-icon-container .tick-outline {
+		stroke: #5F9EA0;
+}

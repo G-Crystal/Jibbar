@@ -1,0 +1,43 @@
+<div class="c-datepicker__heading">
+  <a class="c-datepicker__month-arrow c-datepicker__month-arrow--previous" href="javascript:void(0)"
+     ng-click="move(-1)" tabindex="-1"></a>
+
+  <div id="{{::uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true"
+       ng-disabled="datepickerMode === maxMode" tabindex="-1">
+    <strong>{{title}}</strong>
+  </div>
+
+  <a class="c-datepicker__month-arrow c-datepicker__month-arrow--next" href="javascript:void(0)"
+     ng-click="move(1)" tabindex="-1"></a>
+</div>
+
+<table class="c-datepicker__table" role="grid"
+       aria-labelledby="{{::uniqueId}}-title" aria-activedescendant="{{activeDateId}}">
+  <thead>
+  <tr class="c-datepicker__table-row c-datepicker__table-heading">
+    <th class="c-datepicker__table-cell" ng-if="showWeeks"></th>
+    <th class="c-datepicker__table-cell" ng-repeat="label in ::labels track by $index">
+      <span aria-label="{{::label.full}}">{{::label.abbr}}</span>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="c-datepicker__table-row" ng-repeat="row in rows track by $index" role="row">
+    <td class="c-datepicker__table-cell" ng-if="showWeeks"><em>{{ weekNumbers[$index] }}</em></td>
+    <td class="c-datepicker__table-cell" ng-repeat="dt in row" role="gridcell" id="{{::dt.uid}}"
+        ng-class="::dt.customClass">
+      <button class="c-datepicker__button" href="javascript:void(0)" type="button"
+         uib-is-class="
+            'c-datepicker__button--selected' for selectedDt,
+            'c-datepicker__button--active' for activeDt
+            on dt"
+         tabindex="-1"
+         ng-click="select(dt.date)"
+         ng-disabled="::dt.disabled"
+         ng-class="::{'c-datepicker__button--current': dt.current, 'c-datepicker__button--muted': dt.secondary}">
+        <span>{{::dt.label}}</span>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

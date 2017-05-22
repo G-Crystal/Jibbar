@@ -1,0 +1,338 @@
+<div class="c-subpage__inner">
+  <!-- <div class="c-heading">
+    <div class="c-heading__content">
+      <h1 class="c-heading__title">Preparing to send</h1>
+      <p class="c-heading__about">Oops! You need to purchase some email credits.</p>
+    </div>
+    <div class="c-heading__icon c-templates-send__icon"></div>
+  </div> -->
+
+  <jibbar-dashboard-templates-back heading-title="Preparing to send" heading-about="To make more changes or send a test email, select the edit message button" step="prepare"></jibbar-dashboard-templates-back>
+
+  <div class="c-templates__controls">
+        <jibbar-dashboard-templates-progress step="$ctrl.isScheduled ? 'schedule' : 'send'"></jibbar-dashboard-templates-progress>
+  </div>
+
+
+
+<div class="c-templates-your_plan_summary c-templates-your_plan_summary_extension c-templates-your_plan_summary_width_extension">   
+    <div class="c-templates-your_plan_summary_item">
+      <span class="left-item item-heading">Your Plan: </span><span class="right-item item-value">{{$ctrl.customer.Customer.plan.name}}</span>
+    </div>
+    <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">Available broadcasts in your plan: </span><span class="right-item item-value">{{$ctrl.broadcastBalance}}</span>
+    </div>
+    <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">Required broadcasts for this email: </span><span class="right-item item-value">1</span>
+    </div>
+    <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">Remaining broadcasts in your plan: </span><span class="right-item item-value">{{$ctrl.broadcastBalance - 1}}</span>
+    </div>
+    <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">Available credits in your plan: </span><span class="right-item item-value">{{$ctrl.creditBalance}}</span>
+    </div>
+    <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">Required credits for this email: </span><span class="right-item item-value">{{$ctrl.totalCreditsNeeded}}</span>
+    </div>
+    <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">Remaining credits in your plan: </span><span class="right-item item-value">{{$ctrl.creditBalance - $ctrl.totalCreditsNeeded }}</span>
+    </div>
+
+     <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">Your plan expires on: </span><span class="right-item item-value">{{$ctrl.subscriptionExpireOn |date:'dd MMM yyyy'}}  {{$ctrl.subscriptionExpireOn |  date:'h:mm a'}}</span>
+    </div>
+
+</div> 
+
+<div class="c-templates-your_order_summary-1" ng-if="$ctrl.showOrder">   
+  <div class="c-templates-your_order_summary-2"> 
+    <div class="c-templates-your_plan_summary_item" ng-if="$ctrl.planSelected">
+     <span class="left-item"><a class="c-table__action-link clickable_item" ng-click="$ctrl.removeFromCartPlan()">[ X ]</a> Plan: </span>
+     <span class="left-item" >{{$ctrl.plan.name}}</span>
+     <span class="right-item item-value">{{$ctrl.plan.price}}</span>
+    </div>
+    <div class="c-templates-your_plan_summary_item" ng-if="$ctrl.topUpCreditSelected">
+     <span class="left-item" ><a class="c-table__action-link clickable_item" ng-click="$ctrl.removeFromCartCredit()">[ X ]</a> Credits: </span>
+     <span class="left-item">{{$ctrl.topUpCredit.credits}}</span>
+     <span class="right-item item-value"> {{$ctrl.topUpCredit.price}}</span>
+    </div>
+
+    <div class="c-templates-your_plan_summary_item" ng-if="$ctrl.showHandlingFee">
+     <span class="left-item">Broadcast Fee</span>
+     <span class="right-item item-value"> {{$ctrl.handlingFee}} </span>
+    </div>
+
+    <div class="c-templates-your_plan_summary_item">
+     <span class="left-item">GST at 10%</span>
+     <span class="right-item item-value"> {{$ctrl.tax_percent}} </span>
+    </div>
+
+
+    <div class="c-templates-your_plan_summary_item">
+     
+     <span class="left-item">Total</span>
+     <span class="right-item item-value"> {{$ctrl.total_amount}} </span>
+    </div>
+  </div>
+  <div class="currency-note">Note: All prices are in USD.<br>
+  Exchange rates are calculated on day order is placed.<br>
+  We will email you an invoice and receipt.<br>
+  You can also view details in billing history</div>
+   
+</div>
+
+<div class="c-templates-outside-div-button">
+    
+     <span class="left-item">
+         <button ng-if="!$ctrl.isScheduled" ng-show="$ctrl.isAllowSendEmail" class="c-button c-button--centered"  ng-click="$ctrl.openConfirmationPopup(false)" ng-if="!$ctrl.showOrder">
+         Send Now
+         </button>
+
+         <button ng-if="$ctrl.isScheduled" ng-show="$ctrl.isAllowSendEmail" class="c-button c-button--centered"  ng-click="$ctrl.openConfirmationPopup(true)" ng-if="!$ctrl.showOrder">
+         Schedule
+         </button>
+
+
+          <button class="c-button c-button--centered purple-button" ng-click="$ctrl.processPayment()" ng-if="$ctrl.showOrder">
+         Process payment
+         </button> 
+
+        
+
+          <!--<button class="c-button c-button--centered c__discard_button"  ng-click="$ctrl.openDiscardPopup()" >
+        Discard
+         </button>-->
+
+      </span>
+      <!--<span>{{$ctrl.notice}}</span>-->
+    </div>
+
+
+<div ng-show="!$ctrl.reCheckingAllowance()">
+<div class="c-templates__accordion">
+
+  <i class="fa fa-plus"  ng-if="!$ctrl.getFolding().plan"></i>
+  <i class="fa fa-minus" ng-if="$ctrl.getFolding().plan"></i>
+   
+   <h4 class="c-signatures-new__item-heading c-signatures-new__sub-heading" ng-click="$ctrl.toggleItem('plan')">Your current plan</h4>
+   <div class="accordion__spacer"></div>
+   <div class="c-signatures-new__item-container animate-slide ng-animated" ng-if="$ctrl.getFolding().plan">
+  
+         <div ng-if="$ctrl.customer.Customer.subscriptions_id">
+           <span ng-if="!$ctrl.customer.Customer.isExpired">Current Plan: <b>{{$ctrl.customer.Customer.plan.name}}</b> plan. &nbsp &nbsp &nbsp  <a ng-click="$ctrl.changePlan(plan)">Change your plan</a></span>
+           <span ng-if="$ctrl.customer.Customer.isExpired">You're subscription to <b>{{$ctrl.customer.Customer.plan.name}}</b> plan has been expired.  <a ng-click="$ctrl.changePlan(plan)">Subscribe a new plan</a><</span>
+         </div>
+         
+         <div ng-if="!$ctrl.customer.Customer.subscriptions_id">
+           <span ng-if="!$ctrl.customer.Customer.isExpired">You don't have any subscription.</b> plan. &nbsp &nbsp &nbsp  <a ng-click="$ctrl.changePlan(plan)">Subscribe a plan</a></span> 
+         </div>
+         
+
+       <table class="c-contacts-new__table c-simple-table c-simple-table--with-header">
+            <thead>
+              <tr>
+                <th>Plan </th>
+                <th>Benefits</th> 
+                <th>Cost</th>
+                
+                <th ng-if="$ctrl.selectPlan" class="c-simple-table__highlighted c-simple-table__bold">Select</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="plan in $ctrl.plans" ng-if="plan.display">
+                 
+                   <td class="c-simple-table__highlighted c-simple-table__bold">{{ plan.name }}</td>
+                   <td>{{ plan.description}}</td> 
+                   <td>{{ plan.price }} per {{ plan.interval }}</td>
+                   <td ng-if="$ctrl.selectPlan" class="c-simple-table__centered c-simple-table__highlighted c-simple-table__bold">
+            			 <input  type="radio" name="planChangeButton"   ng-click="$ctrl.subscribePlan(plan)" />
+             			   
+         		  </td>
+              </tr>
+            </tbody>
+       </table> 
+
+   
+  </div>
+
+<div class="accordion__spacer"></div>
+ <div>
+        <i class="fa fa-plus"  ng-if="!$ctrl.getFolding().credits"></i>
+        <i class="fa fa-minus" ng-if="$ctrl.getFolding().credits"></i> 
+        <h4 class="c-signatures-new__item-heading c-signatures-new__sub-heading" ng-click="$ctrl.toggleItem('credits')">Top up email credits</h4>
+        <div class="c-signatures-new__item-container animate-slide ng-animated" ng-if="$ctrl.getFolding().credits">
+            <p class="c-heading__about">Select top up quantity</p>
+
+            <!--<div class="c-templates__controls-right">
+               <button class="c-button" ng-click="$ctrl.saveTopUpCredit()">
+                 Save
+               </button>
+            </div>-->
+
+             <table class="c-contacts-new__table c-simple-table c-simple-table--with-header">
+               <thead>
+                 <tr>
+                   <th>Number of Credits </th>
+                   <!--<th>Broadcasts</th>-->
+                    <th>Cost per credit</th>
+                   <th>Total cost</th>
+                   <!--<th>Validity</th>-->
+                   <th class="c-simple-table__centered">Select</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr ng-repeat="plan in $ctrl.oneTimePlans">
+                   <td class="c-simple-table__highlighted c-simple-table__bold">{{ plan.credits }}</td>
+                    <td>{{ $ctrl.formatAmount(plan.price, plan.credits)}} </td>
+                   <!--<td>{{ plan.broadcasts }}</td>-->
+                   <td>{{ plan.price }} {{ $ctrl.plan.currency }}</td>
+                   <!--<td>{{ plan.validity }}</td>-->
+                   <td class="c-simple-table__centered">
+                   <input  type="radio" name="creditChangeButton"   ng-click="$ctrl.topUpCredits(plan)" />
+                     <!--<a ng-click="$ctrl.topUpCredits(plan)">Purchase</a>-->
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+        </div>
+ </div>
+
+<div class="accordion__spacer">
+  <i class="fa fa-plus"  ng-if="!$ctrl.getFolding().cards"></i>
+  <i class="fa fa-minus" ng-if="$ctrl.getFolding().cards"></i> 
+    <h4 class="c-signatures-new__item-heading c-signatures-new__sub-heading" ng-click="$ctrl.toggleItem('cards')"> Credit card details</h4>
+
+    <div class="c-signatures-new__item-container animate-slide ng-animated" ng-if="$ctrl.getFolding().cards">
+               <div ng-if="$ctrl.customer.Card">
+
+                    <table class="c-contacts-new__table c-simple-table c-simple-table--with-header">
+                       <thead>
+                         <tr>
+                           <th>Card type</th>
+                           <th>Card Number</th>
+                           <th>Expiry</th>
+                           <th class="c-simple-table__centered"></th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                         <tr ng-repeat="card in $ctrl.cards">
+                            <td class="c-simple-table__bold">{{card.type}}</td>
+                            <td>**** **** **** {{card.last4}}</td>
+                            <td>{{card.exp_month}}/{{card.exp_year}}</td>
+                            <td class="c-simple-table__centered">
+                              <input  type="radio" name="creditcards" ng-if="!card.isDefault"  ng-click="$ctrl.changeDefaultCreditCard(card)"  /> &nbsp &nbsp &nbsp
+                              <a ng-if="!card.isDefault" class="c-table__action-link c-table__action-link--remove" ng-bootbox-confirm="Are you sure you want to remove the card?" ng-bootbox-confirm-action="$ctrl.removePaymentSource(card)"
+                                  ng-bootbox-confirm-action-cancel="$ctrl.addAction('Confirmed', 'false', device)" href="javascript:void(0)"></a>
+                            </td>
+                          </tr>
+                       </tbody>
+                     </table>
+                    
+                    
+
+                 <div class="add-card-div"><a class="add-credit-card" ng-click="$ctrl.changeCreditCard()">+Add new card</a></div>
+                  
+                </div>
+                
+                <div ng-if="!$ctrl.customer.Card">
+                  No payment sources. 
+                  <div class="add-card-div">
+                  <a class="add-credit-card" ng-click="$ctrl.changeCreditCard()">+Add new card</a>
+                  </div>
+                </div>  
+                
+                <div class="add-credit-card-form" ng-if="$ctrl.showCardChange">
+                    <form name="frmCollectingPaymentSource" ng-submit="$ctrl.createToken(frmCollectingPaymentSource)" id="frmCollectingPaymentSource"
+                  class="c-account-plan">
+                  <div class="c-account-password__container c-subpage__container">
+                    <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="Card holder name" data-stripe="name" ng-model="$ctrl.card.name">
+                     </div>
+
+                     <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="Card Number" data-stripe="number" ng-model="$ctrl.card.number" ng-required>
+                     </div>
+
+                     <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="Expiray Date (MM/YY)" data-stripe="exp" ng-model="$ctrl.card.exp" ng-required>
+                     </div>
+                     
+                     <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="CVC" data-stripe="cvc" ng-model="$ctrl.card.cvc" ng-required>
+                     </div>
+                    <div class="c-form-group">
+                      <button ng-if="$ctrl.showCardChange" class="c-button">
+                       Save
+                       </button>
+                     </div>
+                   
+                  </div>
+                   
+
+                </form>
+                </div>
+
+  </div>
+
+ <div class="accordion__spacer">
+  <i class="fa fa-plus"  ng-if="!$ctrl.getFolding().address"></i>
+  <i class="fa fa-minus" ng-if="$ctrl.getFolding().address"></i> 
+    <h3 class="c-signatures-new__item-heading c-signatures-new__sub-heading" ng-click="$ctrl.toggleItem('address')">Invoice address</h3>
+
+
+    <div class="c-signatures-new__item-container animate-slide ng-animated" ng-if="$ctrl.getFolding().address">
+
+     
+
+       <div class="c-account-password__container c-subpage__container">
+      <div class="c-form-group">
+      <input class="c-input" ng-model="$ctrl.user.name" type="text" placeholder="First name">
+      
+
+    </div>
+    <div class="c-form-group">
+      
+      <input class="c-input" ng-model="$ctrl.user.surname" type="text" placeholder="Last name">
+
+    </div>
+    <div class="c-form-group">
+      <input class="c-input" type="text" placeholder="Email" ng-model="$ctrl.user.emailAddress">
+    </div>
+                    <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="Company Name" ng-model="$ctrl.shipping.address.line2">
+                     </div>
+
+                     <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="Address" ng-model="$ctrl.shipping.address.line1">
+                     </div>
+
+                     <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="City" ng-model="$ctrl.shipping.address.city">
+                     </div>
+                     <country-state-select country="$ctrl.shipping.address.country" state="$ctrl.shipping.address.state" default-country="Australia"
+                select-empty-value="state"></country-state-select>
+                     <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="Postcode" ng-model="$ctrl.shipping.address.postal_code">
+                     </div>
+                     <div class="c-form-group">
+                      <input class="c-input" type="text" placeholder="Phone" ng-model="$ctrl.shipping.phone">
+                     </div>
+                     
+                    <div class="c-form-group">
+                      <button class="c-button" ng-click="$ctrl.changeShippingAddress()">
+                      Save
+                      </button>
+                     </div>
+                   
+        </div> 
+
+ </div>
+</div>
+  </div>
+</div>
+
+</div>
+<div class="page-bottom-padding"></div>
+
+
+

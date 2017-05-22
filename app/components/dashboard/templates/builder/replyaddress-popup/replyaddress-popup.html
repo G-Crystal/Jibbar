@@ -1,0 +1,16 @@
+<jibbar-popup popup-id="'builder-replyaddress'">
+    <h2 class="c-popup__heading">Change Reply Address</h2>
+
+    <div class="c-popup__separator"></div>
+
+        <div class="c-popup__form-group c-form-group c-form-group--flex">
+            <div class="c-builder-addressee__prefix c-input-prefix">Reply to:</div>
+            <input class="c-input c-input--prefixed" ng-model="$ctrl.replyToEmail" type="email" placeholder="Type an address here" required>
+        </div>
+
+    <div class="c-popup__separator"></div>
+    <div align='center'>
+        <button class="c-button c-button---padding c-button--right-margined" ng-click="$ctrl.saveReplyAddress()">Save</button>
+        <button class="c-button c-button--smaller-padding c-button--empty" ng-click="$ctrl.saveDefaultReplyAddress()">Use default</button>
+    </div>
+</jibbar-popup>

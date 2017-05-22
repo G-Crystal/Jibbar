@@ -1,0 +1,117 @@
+<jibbar-popup class="c-popup--grey c-popup--fullscreen"
+              popup-id="'builder-images'"
+              popup-on-link="$ctrl.onImagesPopupLink()"
+              popup-on-open="$ctrl.onImagesPopupOpen()">
+  <h2 class="c-builder-images-popup__heading c-popup__heading c-popup__heading--big">Choose a new image</h2>
+
+	<div class="crop-area" ng-if="$ctrl.cropSourceImageDataUrl">
+		<div class="img-container">
+			<div class="img-container-title" ng-if="$ctrl.activeImage">Crop</div>
+			<div class="img-container-title" ng-if="!$ctrl.activeImage">Default Image</div>
+			<img ng-src="{{$ctrl.cropSourceImageDataUrl}}"
+			 ng-cropper
+			 ng-cropper-show="$ctrl.showEvent"
+			 ng-cropper-hide="$ctrl.hideEvent"
+			 ng-cropper-options="$ctrl.cropOptions"
+				>                   
+		</div>
+		 <div class="preview-container" ng-if="$ctrl.previewImage.dataUrl" ng-show="false">
+			<div class="img-container-title">Email view:</div>
+			<img ng-src="{{$ctrl.previewImage.dataUrl}}" />
+		  </div>
+	</div> 
+	<div class="c-builder-images-popup__separator c-popup__separator"></div>
+	<div class="c-builder-images-popup__btn-panel">
+		<button class="c-button c-button--right-margined" ng-class="{'c-button-active': $ctrl.area=='user'}" ng-click="$ctrl.changeArea('user')">Used Images</button>
+		<button class="c-button c-button--right-margined" ng-class="{'c-button-active': $ctrl.area=='jibbar'}" ng-click="$ctrl.changeArea('jibbar')">Free Library</button>
+		<button class="c-button  c-button--right-margined" ngf-select="$ctrl.uploadAndSaveFiles($files)" ngf-resize-if="$ctrl.resizeCondition($file, $width, $height)">Your Computer</button>
+		
+		<button class="c-button c-button--empty  c-button--right-margined" ng-click="$ctrl.closeImagesPopup()">Cancel</button>
+		<button class="c-button  c-button--right-margined" ng-click="$ctrl.selectActiveImage()">Select image</button>
+	</div>
+	<div class="c-builder-images-popup__separator c-popup__separator"></div>
+	
+  <div class="c-builder-images-popup__container" perfect-scrollbar>
+	<div id="user-gallery" ng-show="$ctrl.area == 'user'">
+	
+		<div class="c-builder-images-popup__container__noimage" ng-show="$ctrl.imagesGallery == null || $ctrl.imagesGallery.length == 0">
+			<p>
+			Hi, looks like your first time here.
+			</p>
+			<p>
+			Images are important in email. They grab your recipients attention, increasing interaction levels.
+			<br />
+			So we’ve made it super easy for you to find and keep the perfect image.
+			</p>
+			<p>
+			Upload images and logos from your computer or help yourself to our free library.
+			<br />
+			To ensure you never lose anything we’ll save everything you use right here.
+			</p>
+			<p>
+			So let’s get started. Check out our free library or just crack on with your own images.
+			</p>
+		</div>
+		<div ng-show="$ctrl.imagesGallery != null && $ctrl.imagesGallery.length > 0">
+			<h3 class="c-popup__sub-heading">Choose an image from your image gallery.</h3>
+			<ul class="c-builder-images-popup__list o-list-bare">
+			  <li class="c-builder-images-popup__item" ng-repeat="image in $ctrl.imagesGallery track by $index">
+				<div class="c-builder-images-popup__image"
+					 style="background-image: url('{{image.thumbUrl}}')"
+					 ng-click="$ctrl.activateImage(image)"
+					 ng-class="{ 'c-builder-images-popup__image--active': $ctrl.activeImage ==  image }"></div>
+
+				<a class="c-builder-images-popup__remove" href="javascript:void(0)"
+				   ng-show="$ctrl.activeImage == image"
+				   ng-click="$ctrl.deleteImage(image.pid)">
+				  <i class="fa fa-times" aria-hidden="true"></i>
+				</a>
+			  </li>
+			</ul>
+		</div>
+	</div>
+	<div id="upload-area" ng-show="$ctrl.area == 'upload'">
+		<h3 class="c-popup__sub-heading">Upload an image from your computer</h3>
+		<div class="upload-area"
+				ngf-drop="$ctrl.uploadAndSaveFiles($files)"
+				ngf-drag-over-class="dragOverClass($event)"
+				ng-model="files"
+				ng-multiple="true">
+			<form>                   
+				<div>                        
+					<div class="form_controls">
+						<div class="upload_button_holder">
+							<div href="#" class="c-button c-button--left-margined c-button--grey" ngf-select="$ctrl.uploadAndSaveFiles($files)" multiple title="upload" resetOnClick="true">Upload Image</div>
+							<label>Or Drop into this area</label>
+						</div>
+								
+					</div>
+							
+				</div>
+			</form>                                              
+
+		</div>
+	</div>
+	<div id="jibbar-gallery" ng-show="$ctrl.area == 'jibbar'">
+  
+		<h3 class="c-popup__sub-heading">Choose an image from free image gallery.</h3>
+		<div ng-repeat="album in $ctrl.jibbarGallery track by $index" 
+			class="clickable c-popup__album-name" ng-class="{'c-popup__album-name_active': album.visible}" ng-click="$ctrl.toggleAlbum(album)">
+			{{album.name}}						
+		</div>
+		<div class="popup__jibbar-gallery_images">
+			<div ng-repeat="album in $ctrl.jibbarGallery | orderBy: '-recent'" ng-show="album.visible">
+				<h3 class="clickable" ng-click="$ctrl.toggleAlbum(album)" ng-if="album.pictures">{{album.name}}</h3>
+				<ul class="c-builder-images-popup__list o-list-bare">
+				  <li class="c-builder-images-popup__item" ng-repeat="image in album.pictures track by $index">
+					<div class="c-builder-images-popup__image"
+						 style="background-image: url('{{image.thumbUrl}}')"
+						 ng-click="$ctrl.activateImage(image)"></div>				
+				  </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+  </div>
+
+</jibbar-popup>

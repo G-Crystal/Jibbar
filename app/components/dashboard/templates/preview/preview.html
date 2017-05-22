@@ -1,0 +1,40 @@
+
+
+<div class="c-subpage__inner">
+  <!-- <div class="c-heading c-heading--no-padding c-heading--no-border">
+    <div class="c-heading__content">
+      <h1 class="c-heading__title">Preview your email</h1>
+      <p class="c-heading__about">Make sure everything looks just right.</p>
+    </div>
+    <div class="c-heading__icon c-templates__icon"></div>
+  </div> -->
+  <jibbar-dashboard-templates-back heading-title="Preview your email" heading-about="You can go back and make changes to your email by selecting the edit message button" step="preview"></jibbar-dashboard-templates-back>
+<!--   <div class="c-templates__title-header">
+   
+  </div> -->
+  <div class="c-templates__controls">
+    <jibbar-dashboard-templates-progress step="'preview'"></jibbar-dashboard-templates-progress>
+  </div>
+ 
+</div>
+<div class="c-templates-preview__container">
+  <div class="c-templates-preview__left">
+    <div class="c-templates-preview__frame">
+      <ul class="c-templates-preview__details o-list-bare">
+        <li><span class="c-templates-preview__detail-title">From:</span> {{ $ctrl.fromName }} &lt; {{ $ctrl.from }} &gt;</li>
+        <li><span class="c-templates-preview__detail-title">Reply to:</span> {{ $ctrl.reply }}</li>
+        <li><span class="c-templates-preview__detail-title">Subject:</span> {{ $ctrl.subject }}</li>
+      </ul>
+
+      <iframe class="c-templates-preview__iframe" srcdoc="<html></html>"></iframe>
+    </div>
+  </div>
+  <div class="c-templates-preview__right">
+    <h3 class="c-templates-preview__list-heading">We're analyzing your email</h3>
+    <ul class="c-templates-preview__list o-list-bare">
+      <li class="c-templates-preview__device" ng-repeat="device in $ctrl.getDevicesList()">
+        <jibbar-progress-loader ng-attr-id="{{$ctrl.getLoaderIdSpaceRemoved(device)}}"></jibbar-progress-loader> {{ device }}
+      </li>
+    </ul>
+  </div>
+</div>

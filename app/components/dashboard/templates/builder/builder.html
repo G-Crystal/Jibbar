@@ -1,0 +1,36 @@
+<div class="c-subpage__inner">
+  <!-- <div class="c-heading c-heading--no-padding c-heading--no-border">
+    <div class="c-heading__content">
+      <h1 class="c-heading__title">Compose your email.</h1>
+      <p class="c-heading__about">Add your own headings, text and images to your template.</p>
+    </div>
+    <div class="c-heading__icon c-templates__icon"></div>
+  </div> -->
+
+  <jibbar-dashboard-templates-back heading-title="Compose your email." heading-about="Add your own headings, text and images to your template." step="builder"></jibbar-dashboard-templates-back>
+
+  <div class="c-templates__title-header" style="padding-top:25px;">
+
+    <input class="c-input" type="text" placeholder="Enter email subject header here" ng-model="$ctrl.email.subject" ng-blur="$ctrl.saveInLocalStorage()" style="width:80%;" /><br /><br />
+    <div>
+       <a class="c-templates-reply__address-link" href="javascript:void(0)" ng-click="$ctrl.openReplyAddressPopup()">
+          Change reply address
+   </a>
+    </div>
+    
+    
+ 
+  </div>
+  
+  <div class="c-templates__controls">
+    <jibbar-dashboard-templates-progress step="'compose'"></jibbar-dashboard-templates-progress>
+  </div>
+ <!--  <div class="c--templates-undo">
+  <a class="c-templates-reply__address-link" href="javascript:void(0)" ng-click="$ctrl.undoChange()">
+          Undo last change
+   </a>
+   </div> -->
+  <jibbar-builder builder-template="$ctrl.sketch" builder-on-change="$ctrl.onTemplateChange(newValue)" ng-if="$ctrl.sketch"></jibbar-builder>
+  
+</div>
+<jibbar-dashboard-templates-builder-replyaddress-popup></jibbar-dashboard-templates-builder-replyaddress-popup>

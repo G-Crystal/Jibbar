@@ -1,0 +1,101 @@
+<div class="c-table__buttons">
+  <button class="c-table__button" type="button"
+          ng-if="$ctrl.tableCsvExport"
+          ng-csv="$ctrl.getCSVContent()"
+          csv-header="$ctrl.tableExportHeader"
+          filename="jibbar-export.csv">
+    Export as CSV file
+  </button>
+  <button class="c-table__button" type="button"
+          ng-if="$ctrl.tablePdfExport"
+          ng-click="$ctrl.generatePDF()">
+    PDF Report
+  </button>
+</div>
+
+<div class="c-table__border">
+  <div class="c-table__details">
+    <div class="c-table__filter-container">
+      <input class="c-table__filter" type="text" placeholder="Search {{ $ctrl.tableItemName }}"
+             ng-model="$ctrl.tableFilterBy">
+
+      <span class="c-table__filter-icon"></span>
+    </div>
+
+    <div class="c-table__details-inner">
+      <span class="c-table__details-select-count">
+        <span>View</span>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(25)">25</a>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(50)">50</a>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(100)">100</a>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(99999)" ng-if="$ctrl.tableShowAll">All</a>
+      </span>
+
+      <span
+          class="c-table__details-bold">{{ $ctrl.getItemsCount() == 0 ? 0 : $ctrl.getFirstDisplayingItemIndex() }}</span>
+      -
+      <span class="c-table__details-bold">{{ $ctrl.getLastDisplayingItemIndex() }}</span>
+      of
+      <span class="c-table__details-bold">{{ $ctrl.getItemsCount() }}</span>
+
+      <input class="c-table__details-input" title="items per page" ng-model="$ctrl.tableItemsPerPage"
+             ng-blur="$ctrl.onItemsPerPageInputBlur()">
+      {{ $ctrl.tableItemName }} per page
+
+      <div class="c-table__pagination">
+        <a class="c-table__first-page" href="javascript:void(0)" ng-click="$ctrl.goToFirstPage()"></a>
+        <span class="c-table__pagination-separator"></span>
+        <a class="c-table__previous-page" href="javascript:void(0)" ng-click="$ctrl.goToPreviousPage()"></a>
+        <span class="c-table__pagination-separator"></span>
+        <div class="c-table__current-page">
+          Pg. <span class="c-table__current-page--bold">{{ $ctrl.tableCurrentPage }}</span>
+        </div>
+        <span class="c-table__pagination-separator"></span>
+        <a class="c-table__next-page" href="javascript:void(0)" ng-click="$ctrl.goToNextPage()"></a>
+        <span class="c-table__pagination-separator"></span>
+        <a class="c-table__last-page" href="javascript:void(0)" ng-click="$ctrl.goToLastPage()"></a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="c-table__table"></div>
+
+
+  <div class="c-table__details">
+    <div class="c-table__details-inner">
+      <span class="c-table__details-select-count">
+        <span>View</span>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(25)">25</a>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(50)">50</a>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(100)">100</a>
+        <a href="javascript:void(0)" ng-click="$ctrl.setItemsPerPage(99999)" ng-if="$ctrl.tableShowAll">All</a>
+      </span>
+
+      <span
+          class="c-table__details-bold">{{ $ctrl.getItemsCount() == 0 ? 0 : $ctrl.getFirstDisplayingItemIndex() }}</span>
+      -
+      <span class="c-table__details-bold">{{ $ctrl.getLastDisplayingItemIndex() }}</span>
+      of
+      <span class="c-table__details-bold">{{ $ctrl.getItemsCount() }}</span>
+
+      <input class="c-table__details-input" title="items per page" ng-model="$ctrl.tableItemsPerPage"
+             ng-blur="$ctrl.onItemsPerPageInputBlur()">
+      {{ $ctrl.tableItemName }} per page
+
+      <div class="c-table__pagination">
+        <a class="c-table__first-page" href="javascript:void(0)" ng-click="$ctrl.goToFirstPage()"></a>
+        <span class="c-table__pagination-separator"></span>
+        <a class="c-table__previous-page" href="javascript:void(0)" ng-click="$ctrl.goToPreviousPage()"></a>
+        <span class="c-table__pagination-separator"></span>
+        <div class="c-table__current-page">
+          Pg. <span class="c-table__current-page--bold">{{ $ctrl.tableCurrentPage }}</span>
+        </div>
+        <span class="c-table__pagination-separator"></span>
+        <a class="c-table__next-page" href="javascript:void(0)" ng-click="$ctrl.goToNextPage()"></a>
+        <span class="c-table__pagination-separator"></span>
+        <a class="c-table__last-page" href="javascript:void(0)" ng-click="$ctrl.goToLastPage()"></a>
+      </div>
+    </div>
+  </div>
+</div>

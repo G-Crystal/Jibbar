@@ -1,0 +1,63 @@
+<div class="c-hover"
+	ng-click="$ctrl.openPopup($ctrl.hoverElementType)"
+	
+     ng-class="{
+        'c-hover--image': $ctrl.hoverElementType == $ctrl.hoverElementTypes.IMAGE,
+        'c-hover--bordered': $ctrl.hoverElementType == $ctrl.hoverElementTypes.BORDERED,
+        'c-hover--editing': $ctrl.isEditing,
+        'c-hover--editing-multiline': $ctrl.isEditing && $ctrl.multiline,
+        'c-hover--limited': $ctrl.limited
+     }">
+
+  <div class="c-hover__bottom-actions"
+       ng-class="{'c-hover__bottom-actions--image': $ctrl.isImage()}">
+    <a class="c-hover__action c-hover__action--editable" href="javascript:void(0)"
+       ng-class="{ 'c-hover__action--active': $ctrl.isEditing }"
+       ng-if="$ctrl.editable && !$ctrl.isImage()"
+       ng-click="$ctrl.edit()">
+
+      <span ng-if="!$ctrl.isEditing">Edit</span>
+      <span ng-if="$ctrl.isEditing">Save</span>
+    </a>
+
+    <a class="c-hover__action c-hover__action--clonable" href="javascript:void(0)"
+       ng-if="$ctrl.clonable && !$ctrl.isEditing && !$ctrl.isImage()" ng-click="$ctrl.clone()">
+      Copy
+    </a>
+
+    <a class="c-hover__action c-hover__action--removable" href="javascript:void(0)"
+       ng-if="$ctrl.removable && !$ctrl.isEditing" ng-click="$ctrl.remove($event)">
+      Delete
+    </a>
+  </div>
+
+
+  <div class="c-hover__fields"
+       ng-class="{'c-hover__fields--active': $ctrl.isEditing}">
+    <input type="text"
+           ng-if="!$ctrl.multiline"
+           ng-model="$ctrl.value"
+           ng-blur="$ctrl.triggerUpdateEmailBodyEvent()"
+           ng-keypress="$ctrl.fieldKeyPress($event)">
+    <textarea
+        ng-if="$ctrl.multiline"
+        ng-model="$ctrl.value"
+        ng-blur="$ctrl.triggerUpdateEmailBodyEvent()"
+        ng-keypress="$ctrl.fieldKeyPress($event)"></textarea>
+
+    <div class="c-hover__letters-left" ng-if="$ctrl.limited">{{ $ctrl.getLengthLeft() }} left</div>
+  </div>
+
+
+  <div class="c-hover__image" ng-if="$ctrl.isImage()">
+    <h3 class="c-hover__image-heading">Image</h3>
+    <div class="c-hover__image-icon" style="background-image: url('images/builder-image.svg');"></div>
+    <div class="c-hover__image-dimensions">
+      <div class="c-hover__image-dimensions-icon"
+           style="background-image: url('images/builder-dimensions.svg');"></div>
+
+     
+    </div>
+    
+  </div>
+</div>

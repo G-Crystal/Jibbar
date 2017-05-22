@@ -1,0 +1,113 @@
+// Responsiveness
+
+// > 320px
+@mixin mobileS {
+  @media only screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+// > 375px
+@mixin mobileM {
+  @media only screen and (min-width: 375px) {
+    @content;
+  }
+}
+
+// <= 424px
+@mixin mobileL-x {
+  @media only screen and (max-width: 424px) {
+    @content;
+  }
+}
+
+// > 425px
+@mixin mobileL {
+  @media only screen and (min-width: 425px) {
+    @content;
+  }
+}
+
+// <= 549
+@mixin mobileXL-x {
+  @media only screen and (max-width: 549px) {
+    @content;
+  }
+}
+
+// > 550
+@mixin mobileXL {
+  @media only screen and (min-width: 550px) {
+    @content;
+  }
+}
+
+// <= 767px
+@mixin tablet-x {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+// > 768px
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+// <= 799px
+@mixin tabletM-x {
+  @media only screen and (max-width: 799px) {
+    @content;
+  }
+}
+
+// > 800px
+@mixin tabletM {
+  @media only screen and (min-width: 800px) {
+    @content;
+  }
+}
+
+// <= 1023px
+@mixin desktopS-x {
+  @media only screen and (max-width: 1023px) {
+    @content;
+  }
+}
+
+// > 1024px
+@mixin desktopS {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+// > 1200px
+@mixin desktopM {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+// > 1366px
+@mixin desktopL {
+  @media only screen and (min-width: 1366px) {
+    @content;
+  }
+}
+
+// > 1440px
+@mixin desktopXL {
+  @media only screen and (min-width: 1440px) {
+    @content;
+  }
+}
+
+// > 1600px
+@mixin desktopXXL {
+  @media only screen and (min-width: 1600px) {
+    @content;
+  }
+}

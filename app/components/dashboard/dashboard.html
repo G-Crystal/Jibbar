@@ -1,0 +1,16 @@
+<div ng-class="{
+                 'c-dashboard-sidebar--active': $ctrl.isSidebarActive(),
+                 'c-dashboard-sidebar--hidden': $ctrl.isSidebarHidden()
+               }">
+  <jibbar-dashboard-sidebar></jibbar-dashboard-sidebar>
+
+  <div class="c-dashboard__content">
+    <jibbar-dashboard-top-menu></jibbar-dashboard-top-menu>
+
+    <div class="c-subpage">
+      <div ui-view></div>
+    </div>
+    <!-- / c-subpage -->
+  </div>
+  <!-- / c-dashboard__content -->
+</div>

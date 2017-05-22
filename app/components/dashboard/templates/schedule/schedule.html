@@ -1,0 +1,42 @@
+<div class="c-subpage__inner">
+  <!-- <div class="c-heading">
+    <div class="c-heading__content">
+      <h1 class="c-heading__title">Schedule to send your email</h1>
+      <p class="c-heading__about">Add individuals or groups to receive your email.</p>
+    </div>
+    <div class="c-heading__icon c-templates-schedule__icon"></div>
+  </div> -->
+  <jibbar-dashboard-templates-back heading-title="Schedule to send your email" heading-about="After scheduling an email you can reopen it and make changes by selecting the emails option in the left panel." step="groups"></jibbar-dashboard-templates-back>
+  <div class="c-templates__controls">
+    <jibbar-dashboard-templates-progress step="'schedule'"></jibbar-dashboard-templates-progress>
+  </div>
+  <div class="c-templates__controls" style="margin-top: 40px;">
+    <div class="c-templates-schedule__controls c-templates__controls">
+      <div class="c-templates-schedule__controls-left">
+       
+        <div class="c-templates-schedule__time-input c-input">
+          <span class="c-templates-schedule__time-icon"></span> This email is scheduled to send on:
+          <span class="c-templates-schedule__time-highlighted">{{ $ctrl.scheduleon }}</span>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  <div class="c-templates-schedule__container">
+    <div class="c-templates-schedule__content">
+      <div class="c-templates-schedule__date">
+        <h3 class="c-templates-schedule__sub-heading">Set the send date</h3>
+        <div uib-datepicker ng-model="$ctrl.schedule" datepicker-options="$ctrl.dateOptions"></div>
+      </div>
+      <div class="c-templates-schedule__time">
+        <h3 class="c-templates-schedule__sub-heading">Set the send time</h3>
+        <div uib-timepicker ng-model="$ctrl.schedule"></div>
+        <button class="c-templates-schedule__schedule-button c-button" style="margin-top: 15px;" ng-click="$ctrl.saveSchedule()">Schedule to send email</button><br><br>
+         <button class="c-templates-schedule__send-button c-templates__control c-button c-button--empty" ng-click="$ctrl.sendNow()"> <!-- ui-sref="dashboard.templates.prepare"-->
+      Or click here to send now!
+    </button>
+      </div>
+    </div>
+    
+  </div>
+</div>

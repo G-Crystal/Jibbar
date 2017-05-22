@@ -1,0 +1,50 @@
+<div class="c-subpage__inner">
+<jibbar-dashboard-templates-back heading-title="Change profile picture" heading-about="Change your profile picture here" step="picture"></jibbar-dashboard-templates-back>
+
+    <form name="mySettingsForm" role="form" novalidate class="form-validation">
+       
+        <div class="modal-body">
+            <div class="form-group">
+                <div class="upload-area"
+                    ngf-drop="$ctrl.uploadFile($files)"
+                    ngf-drag-over-class="dragOverClass($event)"
+                    ng-model="$ctrl.uploadedFile"
+                    ng-multiple="false">
+                    <form>                   
+                        <div>                        
+                            <div class="form_controls">
+                                <div class="upload_button_holder">
+                                    <div href="#" ng-model="$ctrl.uploadedFile" class="c-button c-button--left-margined c-button--grey" ngf-select="$ctrl.uploadFile($files)" title="upload" resetOnClick="true">Upload Image</div>
+                                    <label>Or Drop into this area</label>
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+                    </form>                                              
+
+                </div>        
+                 <div class="crop-area" ng-if="$ctrl.dataUrl" >
+                    <div class="img-container">
+                        <img ng-if="$ctrl.dataUrl" ng-src="{{$ctrl.dataUrl}}"  width="400"
+                         ng-cropper
+                         ng-cropper-show="$ctrl.showEvent"
+                         ng-cropper-hide="$ctrl.hideEvent"
+                         ng-cropper-options="$ctrl.cropOptions"
+                            >                   
+                    </div>
+                     <div class="preview-container" ng-if="$ctrl.previewImage.dataUrl" >
+						<div>Preview:</div>
+                        <img ng-src="{{$ctrl.previewImage.dataUrl}}">
+                      </div>
+                </div>        
+            </div>
+            
+           
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-disabled="$ctrl.saving" class="btn btn-default" ng-click="$ctrl.cancel()">Cancel</button>
+            <button type="submit" button-busy="$ctrl.saving" busy-text="("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="$ctrl.saveProfilePicture()" ng-disabled="mySettingsForm.$invalid"><i class="fa fa-save"></i> <span>Save</span></button>
+        </div>
+    </form>
+</div>

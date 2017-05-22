@@ -1,0 +1,123 @@
+<div class="c-subpage__inner">
+  <!-- <div class="c-heading">
+    <div class="c-heading__content">
+      <h1 class="c-heading__title">Add email recipients</h1>
+      <p class="c-heading__about">Add groups, individuals or both.</p>
+    </div>
+    <div class="c-heading__icon c-templates-recipients__icon"></div>
+  </div> -->
+  <jibbar-dashboard-templates-back heading-title="Add email recipients" heading-about="Click the check box of all groups and individuals who are to receive this email" step="recipients"></jibbar-dashboard-templates-back>
+  <div class="c-templates__controls">
+    <jibbar-dashboard-templates-progress step="'recipients'"></jibbar-dashboard-templates-progress>
+  </div>
+
+  <div class="c-templates-recipients__container">
+    <div class="c-templates-recipients__selects">
+      <div class="c-templates-recipients__select" ng-if="!$ctrl.isViewingAdded">
+        <div class="c-templates-recipients__select-head">
+          <h3 class="c-templates-recipients__select-heading">Select Groups:</h3>
+          <!--<a class="c-templates-recipients__select-add" href="javascript:void(0)">
+            Add selected groups <span class="c-templates-recipients__select-add-icon"></span>
+          </a>-->
+        </div>
+        <!--<div class="c-templates-recipients__filter">
+          <jibbar-letter-filter ng-model="$ctrl.filterIndividualsLetter"></jibbar-letter-filter>
+        </div>-->
+        <jibbar-table class="c-templates-recipients__individuals-table" table-items="$ctrl.groups">
+          <div class="c-table__head">
+            <div class="c-table__row">
+              <div class="c-table__cell c-table__cell--narrow" jibbar-table-sort="'group_name'">Group Name</div>
+              <div class="c-table__cell c-table__cell--narrow">Recipients</div>
+              <div class="c-table__cell c-table__cell--action c-table__cell--action-one">Add</div>
+            </div>
+          </div>
+          <div class="c-table__body">
+            <div class="c-table__row" ng-repeat="group in $jt.getItems()">
+              <div class="c-table__cell c-table__cell--narrow">{{ group.groupName }}</div>
+              <div class="c-table__cell c-table__cell--narrow">[ {{ group.itemsCount }} recipients ]</div>
+              <div class="c-table__cell c-table__cell--action c-table__cell--action-one">
+                <jibbar-checkbox ng-model="group.isSelected" ng-click="$ctrl.addOrRemoveGroup(group)"></jibbar-checkbox>
+              </div>
+            </div>
+          </div>
+        </jibbar-table>
+        <!--<ul class="c-templates-recipients__groups-list c-table-list c-table-list--column-bordered">
+          <li class="c-table-list__item" ng-repeat="group in $ctrl.getGroups()">
+            <div class="c-templates-recipients__groups-name c-table-list__column">
+              {{ group.groupName }}
+            </div>
+            <div class="c-templates-recipients__groups-count c-table-list__column">
+              [ {{ group.itemsCount }} recipients ]
+            </div>
+            <div class="c-templates-recipients__groups-checkbox c-table-list__column c-table-list__column--checkbox">
+              <jibbar-checkbox ng-model="group.isSelected"></jibbar-checkbox>
+            </div>
+          </li>
+        </ul>-->
+      </div>
+      <div class="c-templates-recipients__select" ng-if="!$ctrl.isViewingAdded">
+        <div class="c-templates-recipients__select-head">
+          <h3 class="c-templates-recipients__select-heading">Select Individuals:</h3>
+          <!--<a class="c-templates-recipients__select-add" href="javascript:void(0)">
+            Add selected individuals <span class="c-templates-recipients__select-add-icon"></span>
+          </a>-->
+        </div>
+        <!--<div class="c-templates-recipients__filter">
+          <jibbar-letter-filter ng-model="$ctrl.filterGroupsLetter"></jibbar-letter-filter>
+        </div>-->
+        <jibbar-table class="c-templates-recipients__individuals-table" table-items="$ctrl.getIndividuals()" table-items-per-page="10"
+          table-current-page="1">
+          <div class="c-table__head">
+            <div class="c-table__row">
+              <div class="c-table__cell c-table__cell--narrow" jibbar-table-sort="'first_name'">First Name</div>
+              <div class="c-table__cell c-table__cell--narrow" jibbar-table-sort="'last_name'">Last Name</div>
+              <div class="c-table__cell" jibbar-table-sort="'email_address'">Email Address</div>
+              <div class="c-table__cell c-table__cell--action c-table__cell--action-one">Add</div>
+            </div>
+          </div>
+          <div class="c-table__body">
+            <div class="c-table__row" ng-repeat="contact in $jt.getItems()">
+              <div class="c-table__cell c-table__cell--narrow">{{ contact.firstName }}</div>
+              <div class="c-table__cell c-table__cell--narrow">{{ contact.lastName }}</div>
+              <div class="c-table__cell"><a class="c-table__link" href="mailto:{{ contact.emailAddress }}">{{ contact.emailAddress }}</a>
+              </div>
+              <div class="c-table__cell c-table__cell--action c-table__cell--action-one">
+                <jibbar-checkbox ng-model="contact.isSelected" ng-click="$ctrl.addOrRemoveContact(contact)"></jibbar-checkbox>
+              </div>
+            </div>
+          </div>
+        </jibbar-table>
+      </div>
+      <jibbar-table ng-show="$ctrl.isViewingAdded" table-items="$ctrl.getAdded()" table-items-per-page="20" table-current-page="1">
+        <div class="c-table__head">
+          <div class="c-table__row">
+            <div class="c-table__cell c-table__cell--narrow" jibbar-table-sort="'first_name'">First Name</div>
+            <div class="c-table__cell c-table__cell--narrow" jibbar-table-sort="'last_name'">Last Name</div>
+            <div class="c-table__cell" jibbar-table-sort="'email_address'">Email Address</div>
+            <div class="c-table__cell c-table__cell--action">Action</div>
+          </div>
+        </div>
+        <div class="c-table__body">
+          <div class="c-table__row" ng-repeat="addedContact in $jt.getItems()">
+            <div class="c-table__cell c-table__cell--narrow">{{ addedContact.firstName }}</div>
+            <div class="c-table__cell c-table__cell--narrow">{{ addedContact.lastName }}</div>
+            <div class="c-table__cell"><a class="c-table__link" href="mailto:{{ addedContact.emailAddress }}">{{ addedContact.emailAddress }}</a></div>
+            <div class="c-table__cell c-table__cell--action">
+              <div class="c-table__action">
+                <a class="c-table__action-link c-table__action-link--edit" href="javascript:void(0)"></a>
+              </div>
+              <div class="c-table__action">
+                <a class="c-table__action-link c-table__action-link--remove" href="javascript:void(0)"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </jibbar-table>
+    </div>
+    <!--<div class="c-templates-recipients__preview">
+      <div class="c-templates-recipients__preview-wrap">
+        <iframe class="c-templates-recipients__preview-iframe"></iframe>
+      </div>
+    </div>-->
+  </div>
+</div>

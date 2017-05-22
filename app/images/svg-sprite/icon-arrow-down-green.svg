@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"
+	 id="svg2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-297.7 382.3 42.4 29"
+	 style="enable-background:new -297.7 382.3 42.4 29;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill:#00aa92;}
+</style>
+<g id="g10" transform="matrix(1.3333333,0,0,-1.3333333,0,42.418)">
+	<g id="g12">
+		<g>
+			<defs>
+				<rect id="SVGID_1_" x="-228.6" y="-280.3" width="42.4" height="29"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+			</clipPath>
+			<g id="g14" class="st0">
+				<g id="g20" transform="translate(15.9072,3.1455)">
+					<path id="path22" class="st1" d="M-210.5-263.9c0,0.1,0,0.3-0.2,0.5l-2,2c-0.3,0.3-0.7,0.3-1,0l-6.9-6.9
+						c-1.5-1.5-3.9-1.5-5.4,0l-6.9,6.9c-0.3,0.3-0.7,0.3-1,0l-2-2c-0.2-0.2-0.2-0.4-0.2-0.5c0-0.1,0-0.3,0.2-0.5l12.1-12.1
+						c0.3-0.3,0.7-0.3,1,0l12.1,12.1C-210.6-264.2-210.5-264-210.5-263.9 M-239.2-263.9c0,1,0.4,2,1.1,2.7l2,2
+						c1.5,1.5,3.9,1.5,5.4,0l6.9-6.9c0.3-0.3,0.7-0.3,1,0l6.9,6.9c1.5,1.5,3.9,1.5,5.4,0l2-2c0.7-0.7,1.1-1.7,1.1-2.7
+						s-0.4-2-1.1-2.7l-12.1-12.1c-1.5-1.5-3.9-1.5-5.4,0l-12.1,12.1C-238.8-265.9-239.2-264.9-239.2-263.9"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

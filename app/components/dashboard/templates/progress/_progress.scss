@@ -1,0 +1,90 @@
+// TEMPLATES PROGRESS
+jibbar-dashboard-templates-progress {}
+
+.c-templates-progress {
+  margin: 6px 6px 0;
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+.c-templates-progress__item {
+  position: relative;
+  width: 174px;
+  height: 39px;
+  margin-right: 2px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  line-height: 38px;
+  text-align: center;
+  color: #adb8c8;
+  background: #fefefe url('images/dashboard-steps-center.svg') repeat-x;
+  background-size: auto 39px;
+  &:before,
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    width: 9px;
+    height: 39px;
+    background-color: #fff;
+    background-size: auto 100%;
+    background-image: url('images/dashboard-steps.svg');
+  }
+  &:before {
+    left: 0;
+  }
+  &:after {
+    right: 0;
+    background-position: right center;
+  }
+  &:first-child {
+    border-left: 1px solid rgba(178, 188, 203, .5);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    &:before {
+      content: none;
+    }
+  }
+  &:last-child {
+    margin-right: 0;
+    flex-grow: 1;
+    border-right: 1px solid rgba(178, 188, 203, .5);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    &:after {
+      content: none;
+    }
+  }
+  &--short {
+    width: 92px;
+  }
+  &--active {
+    background-color: #b2bccb;
+    border-color: #b2bccb;
+    color: #fff;
+    &:before,
+    &:after {
+      background-image: url('images/dashboard-steps-active.svg');
+    }
+  }
+}
+
+.c-templates-progress__send-icon {
+  @include svg-sprite(dashboard-steps-send,
+  30px,
+  20px);
+  display: inline-block;
+  margin-top: 9px;
+  &--active {
+    @include svg-sprite(dashboard-steps-send-active,
+    30px,
+    20px);
+  }
+}
+
+.c__discard_button{
+  background-color: #d9534f;
+  border: 2px solid #d9534f;
+  margin-right: 10px;
+}

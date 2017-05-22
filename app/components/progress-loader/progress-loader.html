@@ -1,0 +1,16 @@
+<div class="progress-icon-container">
+<svg class="progress-icon" width="20" height="20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<path ng-attr-id="{{$ctrl.idAttrTickOutlinePath}}" d="M14 28c7.732 0 14-6.268 14-14S21.732 0 14 0 0 6.268 0 14s6.268 14 14 14z" opacity="0" />
+		<path id="{{$ctrl.idAttrTickPath}}" d="M6.173 16.252l5.722 4.228 9.22-12.69" opacity="0"/>
+	</defs>
+	<g class="tick-icon" stroke-width="2" stroke="rgba(0,0,0,.2)" fill="none" transform="translate(1, 1)">
+		<use class="tick-outline" xlink:href="{{$ctrl.hashIdAttrTickOutlinePath}}" />
+		<use class="tick" xlink:href="{{$ctrl.hashIdAttrTickPath}}" />
+	</g>
+	<g class="tick-icon" stroke-width="2" stroke="#fff" fill="none" transform="translate(1, 1.2)">
+		<use class="tick-outline" xlink:href="{{$ctrl.hashIdAttrTickOutlinePath}}" />
+		<use class="tick" xlink:href="{{$ctrl.hashIdAttrTickPath}}" />
+	</g>
+</svg>
+</div>

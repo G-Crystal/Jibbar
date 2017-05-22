@@ -1,0 +1,43 @@
+// TABLE LIST
+
+.c-table-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #c9d4e1;
+  border-radius: 5px;
+
+  &--column-bordered {
+    .c-table-list__column {
+      border-right: 1px solid #bfcbda;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
+
+  .c-table-list__item {
+    @include container;
+    height: 48px;
+    font-size: 1.0625rem;
+    border-bottom: 1px solid #abbacc;
+    color: #7a8591;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+    .c-table-list__column {
+      padding: 0 15px;
+      line-height: 48px;
+
+      &--checkbox {
+        padding-top: 8px;
+        line-height: 1;
+        text-align: center;
+      }
+    }

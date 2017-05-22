@@ -1,0 +1,42 @@
+<div class="c-home__forms">
+
+  <div class="c-home__forms-item">
+    <div id="pre-registration">
+      <h3 class="c-home__forms-small-heading">Do you want to know when the</h3>
+      <h2 class="c-home__forms-heading">Email revolution begins?</h2>
+      <div class="c-home__forms-about">
+        Let us know your contact details and we’ll drop you a line when Jibbar launches.
+      </div>
+
+      <form class="c-home__forms-form" name="preRegForm">
+        <div class="c-home__forms-group" ng-class="{ 'has-error' : preRegForm.firstName.$invalid && (!preRegForm.firstName.$pristine || preRegForm.firstName.$touched) }">
+          <input class="c-home__forms-input" type="text" name="firstName" ng-model="$ctrl.user.name" placeholder="what’s  your first name?"
+            required>
+          <div class="help-block" ng-messages="preRegForm.firstName.$error" ng-if="preRegForm.firstName.$invalid && (!preRegForm.firstName.$pristine || preRegForm.firstName.$touched)">
+            <p ng-message="required">First name required.</p>
+          </div>
+        </div>
+
+        <div class="c-home__forms-group">
+          <input class="c-home__forms-input" type="text" ng-model="$ctrl.user.surname" placeholder="what’s  your last name?">
+        </div>
+
+        <div class="c-home__forms-group" ng-class="{ 'has-error' : preRegForm.email.$invalid && (!preRegForm.email.$pristine || preRegForm.email.$touched) }">
+          <input class="c-home__forms-input" type="email" name="email" ng-model="$ctrl.user.emailAddress" placeholder="what’s  your email address?"
+            required>
+          <div class="help-block" ng-messages="preRegForm.email.$error" ng-if="preRegForm.email.$invalid && (!preRegForm.email.$pristine || preRegForm.email.$touched)">
+            <p ng-message="required">Valid Email address required.</p>
+          </div>
+        </div>
+
+        <div class="c-home__forms-group">
+          <button class="c-home__forms-button" ng-click="$ctrl.addNewUser(preRegForm)" >Create my account</button>
+        </div>
+      </form>
+
+      <div class="c-home__forms-footer-text">Your email address will only be used to notifiy you about our launch.
+      </div>
+
+    </div>
+  </div>
+</div>

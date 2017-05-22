@@ -1,0 +1,22 @@
+// TEMPLATES LIST
+
+jibbar-dashboard-templates-builder {
+}
+
+a.c-templates-reply__address-link {
+      display: inline-block;
+      margin-left: 14px;
+      margin-top: 14px;
+      font-size: 0.8em;
+      color: #697b97;
+      transition: opacity .2s;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+.c--templates-undo{
+  position: relative;
+  top: 40px;
+  left: 45%;
+}

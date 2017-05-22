@@ -1,0 +1,16 @@
+<jibbar-popup class="c-popup--grey c-popup--big c-popup--medium"
+              popup-id="'builder-link'"
+			  popup-on-open="$ctrl.onLinkPopupOpen()">
+  <h2 class="c-popup__heading c-popup__heading--big">Edit button</h2>
+  <div class="c-popup__form-group c-popup__form-group--small" ng-if="!$jp.data.linkOnly">
+    <input class="c-input" type="text" placeholder="Edit your button text here" ng-model="$jp.data.text">
+  </div>
+
+  <div class="c-popup__form-group c-popup__form-group--medium">
+    <input class="c-input" type="text" placeholder="Type destination URL here" ng-model="$jp.data.link">
+  </div>
+
+  <div class="o-center">
+    <button class="c-button" ng-click="$ctrl.save($jp.data.text, $jp.data.link)">Save</button>
+  </div>
+</jibbar-popup>

@@ -1,0 +1,77 @@
+// INPUT
+
+.c-form-group {
+  margin-bottom: 16px;
+
+  &--flex {
+    display: flex;
+    align-items: center;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-input,
+.c-input-prefix {
+  display: inline-block;
+  vertical-align: middle;
+  height: 46px;
+  padding: 0 26px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 42px;
+  color: darken(#697c98, 10%);
+  background-color: #fff;
+  border: 2px solid #abbacc;
+  border-radius: 50px;
+}
+
+.c-input {
+  width: 100%;
+  padding-bottom: 2px;
+  font-weight: 400;
+
+  @include placeholder {
+    opacity: .8;
+  }
+
+  &--prefixed {
+    flex: 1;
+    width: auto;
+    padding-left: 0;
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &--search {
+    padding-right: 40px;
+  }
+
+  &--left-margined {
+    margin-left: 17px;
+  }
+}
+
+.c-input-prefix {
+  padding-right: 10px;
+  line-height: 40px;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c-input-search {
+  position: relative;
+
+  &:after {
+    @include svg-sprite(icon-search-purple, 23px, 26px);
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}

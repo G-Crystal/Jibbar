@@ -1,0 +1,26 @@
+<jibbar-popup popup-id="'dashboard-templates-prepare-discard-popup'">
+ 
+  <h2 class="c-popup__heading">Save a draft before leaving editor <br>or all edits will be lost </h2>
+
+  <div class="c-popup__about"> 
+    Deleting email cannot be undone.<br> 
+  </div>
+
+  <div class="c-popup__separator c-popup__separator--empty"></div>
+
+  <div class="o-center">
+    <div class="o-center">
+      <button class="c-button c-button--smaller-padding c-button--right-margined" ng-click="$ctrl.saveAsDraft()">
+        Save draft
+      </button>
+      <button class="c-button c-button--smaller-padding c-button--right-margined c__discard_button" ng-click="$ctrl.discardEmail()">
+        Discard email
+      </button>
+
+      <button class="c-button c-button--smaller-padding c-button--empty" jibbar-popup-close>
+        Cancel
+      </button>
+    </div>
+  </div>
+  
+</jibbar-popup>

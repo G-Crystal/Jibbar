@@ -1,0 +1,48 @@
+<jibbar-popup popup-id="'dashboard-templates-prepare-confirmation-popup'">
+  <div ng-show="!$ctrl.isScheduled">
+  <h2 class="c-popup__heading">{{$ctrl.message.heading}} </h2>
+
+  <div class="c-popup__about"> 
+    {{$ctrl.message.about}}<br> 
+  </div>
+
+  <div class="c-popup__separator c-popup__separator--empty"></div>
+
+  <div class="o-center">
+    <div class="o-center">
+      <button class="c-button c-button--smaller-padding c-button--right-margined" ng-click="$ctrl.sendNow()">
+        Confirm
+      </button>
+
+      <button class="c-button c-button--smaller-padding c-button--empty" jibbar-popup-close>
+        Cancel
+      </button>
+    </div>
+  </div>
+  </div>
+
+
+  <div ng-show="$ctrl.isScheduled">
+  <h2 class="c-popup__heading">Are you sure you want to schedule this email? </h2>
+
+  <div class="c-popup__about"> 
+    This action cannot be undone.<br> 
+  </div>
+
+  <div class="c-popup__separator c-popup__separator--empty"></div>
+
+  <div class="o-center">
+    <div class="o-center">
+      <button class="c-button c-button--smaller-padding c-button--right-margined" ng-click="$ctrl.scheduleNow()">
+        Confirm
+      </button>
+
+      <button class="c-button c-button--smaller-padding c-button--empty" jibbar-popup-close>
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  </div>
+   
+</jibbar-popup>

@@ -1,0 +1,39 @@
+// SELECT
+
+jibbar-letter-filter {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+  .c-letter-filter__option {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    font-size: 1.0625rem;
+    font-weight: 900;
+    line-height: 28px;
+    text-align: center;
+    color: #92278f;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity .2s, border-color .2s;
+
+    &:first-child {
+      width: 120%;
+      margin-right: 20px;
+    }
+
+    &:hover {
+      opacity: .5;
+    }
+
+    &--active {
+      border-color: #b2bccb;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }

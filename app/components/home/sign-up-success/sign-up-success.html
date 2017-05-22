@@ -1,0 +1,17 @@
+<h3 class="c-home__forms-heading">Successfully Registered.</h3>
+<br /><br />
+<ul>
+    <li><span class="white-bold">Name:</span> {{$ctrl.newlyRegisterUser.name +' '+ $ctrl.newlyRegisterUser.surname}}</li>
+    <li><span class="white-bold">User Name:</span> {{$ctrl.newlyRegisterUser.userName}}</li>
+    <li><span class="white-bold">Email Address:</span> {{$ctrl.newlyRegisterUser.emailAddress}}</li>
+</ul>
+<br /><br />
+<div>
+    <div ng-if="$ctrl.newlyRegisterUser.sendActivationEmail" class="alert alert-warning alert-bold" role="alert">
+        A confirmation mail sent to {{$ctrl.newlyRegisterUser.emailAddress}}. Please click link in the email in order to confirm
+        your mail address.
+    </div>
+    <div ng-if="!$ctrl.newlyRegisterUser.isActive" class="alert alert-warning alert-bold" role="alert">
+        Your account is waiting to be activated by system admin.
+    </div>
+</div>

@@ -1,0 +1,197 @@
+<style>
+  /* CUSTOMIZABLE */
+  [editable] {
+    //position: relative;
+    //z-index: 101;
+  }
+
+  /* HOVERS */
+  hovers *,
+  hovers *:before,
+  hovers *:after {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    outline: 0;
+  }
+
+  .c-hover {
+    position: absolute;
+    z-index: 100;
+  }
+  .c-hover--image {
+	cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #00aa92;
+    color: #fff;
+  }
+  .c-hover--bordered {
+    /*border: 2px solid #00aeef;*/
+    border: 1px solid #00aeef;
+    box-shadow: inset 5px 5px 5px #cccccc;
+    border-radius: 5px;
+  }
+  .c-hover--editing {
+    min-height: 84px;
+    background-color: #fff;
+    z-index: 101;
+  }
+  .c-hover--editing.c-hover--limited {
+    min-height: 94px;
+  }
+  .c-hover--editing-multiline {
+    min-height: 144px;
+    background-color: #fff;
+  }
+  .c-hover--editing-multiline.c-hover--limited {
+    min-height: 154px;
+  }
+
+    .c-hover__action {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      height: 28px;
+      padding: 0 10px;
+      font-weight: 600;
+      line-height: 24px;
+      text-align: center;
+      text-decoration: none;
+      background-color: white;
+      border: 2px solid #00aeef;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+      color: #00aeef;
+    }
+    .c-hover__action:hover {
+      border-color: rgba(0, 174, 239, .5);
+      color: rgba(0, 174, 239, .5);
+    }
+    .c-hover__action--active {
+      border-color: #abbacc;
+      color: #abbacc;
+    }
+    .c-hover__action--active:hover {
+      border-color: rgba(171, 186, 204, .5);
+      color: rgba(171, 186, 204, .5);
+    }
+    .c-hover__bottom-actions--image .c-hover__action {
+      background-color: #fff;
+      border-color: #00aa92;
+      color: #00aa92;
+    }
+    .c-hover__bottom-actions--image .c-hover__action:hover {
+      color: rgba(0, 170, 146, .5);
+    }
+
+    .c-hover__bottom-actions {
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      text-align: center;
+      cursor: default;
+    }
+
+    .c-hover__image {
+    }
+
+      .c-hover__image-heading {
+        margin: 0;
+        font-size: .9375rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .c-hover__image-icon {
+        display: inline-block;
+        width: 100px;
+        height: 67px;
+        margin-top: 14px;
+        background-size: contain;
+      }
+
+      .c-hover__image-dimensions {
+        margin-top: 14px;
+      }
+
+        .c-hover__image-dimensions-icon {
+          display: inline-block;
+          vertical-align: middle;
+          width: 22px;
+          height: 22px;
+          background-size: contain;
+        }
+
+        .c-hover__image-dimensions-text {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 5px;
+          font-size: .8125rem;
+          text-align: left;
+        }
+
+      .c-hover__image-button {
+        display: inline-block;
+        height: 36px;
+        margin-top: 23px;
+        padding: 0 20px;
+        line-height: 32px;
+        font-weight: 900;
+        text-decoration: none;
+        border: 2px solid #fff;
+        border-radius: 100px;
+        color: #fff;
+        transition: color .2s, border-color .2s, background-color .2s;
+      }
+      .c-hover__image-button:hover {
+        color: #00aa92;
+        background-color: #fff;
+        border-color: #fff;
+      }
+
+    .c-hover__fields {
+      display: none;
+      height: 100%;
+      padding: 20px;
+    }
+    .c-hover--limited .c-hover__fields {
+      padding: 20px 20px 30px;
+    }
+    .c-hover__fields--active {
+      display: block;
+    }
+
+      .c-hover__fields > textarea {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        resize: none;
+        border: 1px solid #abbacc;
+      }
+
+      .c-hover__fields > input {
+        display: block;
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid #abbacc;
+      }
+  
+      .c-hover__letters-left {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: normal;
+        color: #555;
+      }
+</style>

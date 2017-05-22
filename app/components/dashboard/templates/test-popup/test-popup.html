@@ -1,0 +1,10 @@
+<jibbar-popup class="c-templates-test c-popup--grey c-popup--big c-popup--medium"
+              popup-id="'templates-test'">
+  <h2 class="c-popup__heading c-popup__heading--big">Send a test email</h2>
+<form name="testMailForm">
+  <div class="c-form-group c-form-group--flex">
+    <input class="c-input" type="email" placeholder="Type an address to send a test email" ng-model="$ctrl.emailAddress" required>
+    <button class="c-button c-button--left-margined" ng-click="$ctrl.send(testMailForm)">Send</button>
+  </div>
+  </form>
+</jibbar-popup>

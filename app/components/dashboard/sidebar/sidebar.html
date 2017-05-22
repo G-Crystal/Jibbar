@@ -1,0 +1,39 @@
+<a class="c-dashboard-sidebar__logo" ui-sref="dashboard" ng-click="$ctrl.deactivateSidebar()">
+  <img src="images/logo.svg" alt="Jibbar">
+</a>
+
+<ul class="c-dashboard-sidebar__menu o-list-bare ps-theme-thin ps-theme-dark" perfect-scrollbar>
+  <li class="c-dashboard-sidebar__item" ng-repeat="link in $ctrl.getSidebarMenu()"
+      ng-class="{ 'c-dashboard-sidebar__item--active': $ctrl.isItemActive(link) }">
+
+    <a class="c-dashboard-sidebar__link" ui-sref="{{ link.sref || 'home' }}" ng-click="$ctrl.deactivateSidebar()">
+      <span class="c-dashboard-sidebar__icon c-dashboard-sidebar__icon--{{ link.iconSlug }}"></span> {{ link.title }}
+    </a>
+
+    <ul class="c-dashboard-sidebar__submenu" ng-if="link.subLinks">
+      <li class="c-dashboard-sidebar__subitem" ng-repeat="sublink in link.subLinks">
+        <!-- if subpage -->
+        <a class="c-dashboard-sidebar__sublink" href="javascript:void(0)"
+           ng-if="sublink.sref"
+           ui-sref="{{ sublink.sref || 'home' }}"
+           ng-class="{ 'c-dashboard-sidebar__sublink--active': $ctrl.isSubLinkActive(sublink) }"
+           ng-click="$ctrl.deactivateSidebar()">
+          {{ sublink.title }}
+        </a>
+
+        <!-- if popup -->
+        <a class="c-dashboard-sidebar__sublink" href="javascript:void(0)"
+           ng-if="sublink.popup"
+           jibbar-popup-open="'dashboard-groups-create'"
+           ng-class="{ 'c-dashboard-sidebar__sublink--active': $ctrl.isSubLinkActive(sublink) }"
+           ng-click="$ctrl.deactivateSidebar()">
+          {{ sublink.title }}
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+<!-- popups opened by sidebar -->
+<jibbar-dashboard-groups-create-popup></jibbar-dashboard-groups-create-popup>

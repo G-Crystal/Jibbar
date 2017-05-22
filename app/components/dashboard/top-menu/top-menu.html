@@ -1,0 +1,50 @@
+<a class="c-dashboard-top__toggle" href="javascript:void(0)" ng-click="$ctrl.toggleSidebar()" ng-hide="$ctrl.isSidebarHidden()"></a>
+<!-- / c-dashboard-top__toggle -->
+<ul class="c-dashboard-top__links o-list-bare">
+  <!-- <li>
+    <a href="javascript:void(0)" ng-click="$ctrl.goToHelp()">
+      <span class="c-dashboard-top__question-mark">?</span> Help
+    </a>
+  </li> -->
+  <li>
+    <a class="c-dashboard-top__notification-link" href="javascript:void(0)" ng-click="$ctrl.toggleNotifications()">
+      <span class="c-dashboard-top__chat-icon" ng-class="{ 'c-dashboard-top__chat-icon--active': $ctrl.isNotificationsVisible }"></span>
+      <span class="c-dashboard-top__circle">{{$ctrl.unreadNotificationCount}}</span>
+    </a>
+  </li>
+  <li>
+    <a class="c-dashboard-top__name" href="javascript:void(0)" ng-click="$ctrl.toggleMenu()" ng-class="{ 'c-dashboard-top__name--active': $ctrl.isMenuVisible }">
+      {{$ctrl.user}} <span class="c-dashboard-top__triangle"></span>
+    </a>
+  </li>
+</ul>
+<!-- / c-dashboard-top__links -->
+
+    <a href="javascript:void(0)" ng-click="$ctrl.toggleMenu()" class="c-dashboard-top__avatar-wrapper" ng-class="{ 'profile-picture-wrapper': $ctrl.profileImageFound }">
+        <ng-avatar ng-if="!$ctrl.profileImageFound" ng-hide="!$ctrl.profileImageFound" string="{{ $ctrl.user }}" bind="true" auto-color="true" wrapper="false"  round-shape="true"  img-class="c-dashboard-top__avatar img-circle ng-avatar"></ng-avatar>
+        <img ng-if="$ctrl.profileImageFound" handle-profile-image-error on-image-response="$ctrl.updateProfileImageExistence(exists)" class="c-dashboard-top__avatar img-circle"
+        ng-src="{{$ctrl.profilePicturePath}}" />
+    </a>
+     
+<!-- / c-dashboard-top__avatar -->
+
+<ul class="c-dashboard-top__menu c-dashboard-top__dropdown o-list-bare" ng-show="$ctrl.isMenuVisible">
+  <li class="c-dashboard-top__menu-item" ng-repeat="item in $ctrl.getMenuItems()">
+    <a class="c-dashboard-top__menu-link" ui-sref="{{ item[1] }}" 
+       ui-sref-active="c-dashboard-top__menu-link--active">{{ item[0] }}</a>
+  </li>
+  <li class="c-dashboard-top__menu-item" ng-click="$ctrl.logout()">
+    <a class="c-dashboard-top__menu-link" href="javascript:void(0)"
+       ui-sref-active="c-dashboard-top__menu-link--active">Logout</a>
+  </li>
+</ul>
+
+
+  <!-- / c-dashboard-top__menu -->
+  <div class="c-dashboard-top__notifications c-dashboard-top__dropdown" ng-show="$ctrl.isNotificationsVisible">
+    <ul class="o-list-bare">
+      <li class="c-dashboard-top__notifications-item" ng-repeat="item in $ctrl.notifications">{{ item }}</li>
+    </ul>
+    <button class="c-dashboard-top__notifications-button" type="button" ui-sref="dashboard.account.notifications">See all notifications</button>
+  </div>
+  <!-- / c-dashboard-top__notifications -->
