@@ -11,8 +11,8 @@ npm install
 npm run dev
 
 
-##Customizable directives: /components/builder/customizable
+##Customizable directives: app/components/builder/customizable
 
 ##Email templates:
-####List: /dashboard/templates
-####Builder: /dashboard/templates/builder/:templateId
+####List: app/components/dashboard/templates
+####Builder: app/components/dashboard/templates/builder/:templateId
