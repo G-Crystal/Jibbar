@@ -258,7 +258,7 @@
       vm.sender = angular.isDefined($attrs['sender']);
       vm.setBack = angular.isDefined($attrs['setBack']);
       vm.footerMsg = angular.isDefined($attrs['footerMsg']);
-      vm.useRte = = angular.isDefined($attrs['useRte']);
+      vm.useRte = angular.isDefined($attrs['useRte']);
     }
 
     function determineElementType() {
