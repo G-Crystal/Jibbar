@@ -30,3 +30,7 @@ We have another attribute *use-rte* and we want to add a rich text editor for th
 
 For rich text editor please add http://textangular.com/ this plugin.
 
+If you go to app/components/builder/customizable/customizable.html then you will see that for $ctrl.multiline its generating textarea.
+
+Samely we want the editor to generate `text-angular` instead of `textarea` if $ctrl.useRte is true.
+
