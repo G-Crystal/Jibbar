@@ -39,3 +39,8 @@ Samely we want the editor to generate `text-angular` instead of `textarea` if $c
 username: fed@jibbar.com
 password: fed123456
 
+#Template having `use-rte`
+
+http://localhost:3000/app/#/dashboard/templates/builder/lWmYomsvvJugIHKsrtSgJw
+
+At the above template the main body area has `use-rte` attribute attached to it.
