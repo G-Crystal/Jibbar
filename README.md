@@ -11,7 +11,7 @@ npm install
 npm run dev
 
 
-#Customizable directives: /components/builder/customizable
+##Customizable directives: /components/builder/customizable
 
 ##Email templates:
 ####List: /dashboard/templates
