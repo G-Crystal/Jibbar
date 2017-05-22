@@ -1,3 +1,16 @@
+#Pre-requisite to run the app:
+
+You need to have npm installed in your computer
+
+#Installation:
+
+npm install
+
+#How to run:
+
+npm run dev
+
+
 #Routes:
 
 ##Home:
