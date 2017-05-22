@@ -86,6 +86,7 @@
     "pdfmake": "^0.1.26",
     "signalr": "^2.2.1",
     "xlsx": "^0.8.0",
-    "html2canvas": "^0.5.0-beta4"
+    "html2canvas": "^0.5.0-beta4",
+    "textangular": "^1.5.16"
   }
 }
