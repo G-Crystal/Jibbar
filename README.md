@@ -34,3 +34,8 @@ If you go to app/components/builder/customizable/customizable.html then you will
 
 Samely we want the editor to generate `text-angular` instead of `textarea` if $ctrl.useRte is true.
 
+#Credentials to login the application
+
+username: fed@jibbar.com
+password: fed123456
+
