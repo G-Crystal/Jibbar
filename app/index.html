@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <base href="/app/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jibbar</title>
+  <!-- REMOTE VENDORS -->
+  <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+  <script src="https://js.stripe.com/v2/"></script>
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- STYLES -->
+  <!-- build:css vendor/style.min.css -->
+  <link href="vendor/bootstrap.css" rel="stylesheet">
+  <link href="../node_modules/angular-toastr/dist/angular-toastr.css" rel="stylesheet" />
+  <link href="../node_modules/angular-block-ui/dist/angular-block-ui.css" rel="stylesheet" />
+  <link href="vendor/cropper/cropper.css" rel="stylesheet" />
+  <link href="vendor/cropper/ngCropper.all.css" rel="stylesheet" />
+
+  <!-- build:css style.min.css -->
+  <link href="style.css" rel="stylesheet">
+  <!-- endbuild -->
+</head>
+
+<body ng-strict-di ng-cloak>
+  <jibbar></jibbar>
+  <!-- VENDORS -->
+  <!-- build:js vendor/script.min.js -->
+  <script src="vendor/jquery.js"></script>
+  
+  <script src="vendor/angular.js"></script>
+  <script src="vendor/angular-animate.js"></script>
+  <script src="vendor/angular-sanitize.js"></script>
+  <script src="vendor/angular-ui-router.js"></script>
+  <script src="vendor/angular-recaptcha.js"></script>
+  <script src="vendor/perfect-scrollbar.jquery.js"></script>
+  <script src="vendor/angular-perfect-scrollbar.js"></script>
+  <script src="../node_modules/angular-file-saver/dist/angular-file-saver.bundle.js"></script>
+  <script src="vendor/ui-bootstrap.js"></script>
+  <script src="scripts/popmotion.global.min.3.5.0.js"></script>
+  <script src="vendor/cropper/cropper.js"></script>
+  <script src="vendor/cropper/ngCropper.all.js"></script>
+  <script src="../node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+  <script src="../node_modules/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../node_modules/bootbox/bootbox.js"></script>
+  <script src="../node_modules/ngbootbox/dist/ngBootbox.js"></script>
+  <script src="../node_modules/xlsx/dist/xlsx.core.min.js"></script>
+  <script src="vendor/socialInviterFile.js"></script>
+  <script src="../node_modules/lodash/lodash.min.js"></script>
+  <script src="../node_modules/angular-block-ui/dist/angular-block-ui.js"></script>
+  <script src="../node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+  <script src="../node_modules/angular-cloudinary/angular-cloudinary.js"></script>
+  <script src="../node_modules/angular-avatar/dist/angular-avatar.min.js"></script>
+  <script src="../node_modules/aws-sdk/dist/aws-sdk.js"></script>
+  <script src="../node_modules/moment/min/moment.min.js"></script>
+  <script src="../node_modules/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+  <script src="../node_modules/css-element-queries/src/ResizeSensor.js"></script>
+  
+  <script src="../node_modules/html2canvas/dist/html2canvas.js"></script>
+  
+  <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
+  <script src="../node_modules/signalr/jquery.signalR.js"></script>
+  
+  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+  <script src="../node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+  <script src="../node_modules/ng-csv/build/ng-csv.min.js"></script>
+  <script src="../node_modules/pdfmake/build/pdfmake.js"></script>
+  <script src="../node_modules/pdfmake/build/vfs_fonts.js"></script>
+  <!-- <script type="text/javascript" src="vendor/popmotion.global.js"></script> -->
+ 
+
+  <!-- endbuild -->
+  <!-- MODULES -->
+  <!-- build:js script.min.js -->
+  <!-- inject:js --> 
+
+ 
+ 
+  <script src="app.module.js"></script> 
+
+ 
+ 
+  <script src="components/components.module.js"></script> 
+
+ 
+ 
+  <script src="components/builder/builder.module.js"></script> 
+
+ 
+ 
+  <script src="components/checkbox/checkbox.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/dashboard.module.js"></script> 
+
+ 
+ 
+  <script src="components/datepicker/datepicker.module.js"></script> 
+
+ 
+ 
+  <script src="components/fileread/fileread.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/home.module.js"></script> 
+
+ 
+ 
+  <script src="components/letter-filter/letter-filter.module.js"></script> 
+
+ 
+ 
+  <script src="components/popup/popup.module.js"></script> 
+
+ 
+ 
+  <script src="components/progress-loader/progress-loader.module.js"></script> 
+
+ 
+ 
+  <script src="components/radio/radio.module.js"></script> 
+
+ 
+ 
+  <script src="components/recipients-search/recipients-search.module.js"></script> 
+
+ 
+ 
+  <script src="components/select/select.module.js"></script> 
+
+ 
+ 
+  <script src="components/table/table.module.js"></script> 
+
+ 
+ 
+  <script src="components/template-preview/template-preview.module.js"></script> 
+
+ 
+ 
+  <script src="components/templates-gallery/templates-gallery.module.js"></script> 
+
+ 
+ 
+  <script src="components/templates-grid/templates-grid.module.js"></script> 
+
+ 
+ 
+  <script src="components/timepicker/timepicker.module.js"></script> 
+
+ 
+ 
+  <script src="components/builder/customizable/customizable.module.js"></script> 
+
+ 
+ 
+  <script src="components/builder/images-popup/images-popup.module.js"></script> 
+
+ 
+ 
+  <script src="components/builder/link-popup/link-popup.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/sidebar/sidebar.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/static/static.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/templates.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/top-menu/top-menu.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/email-activation/email-activation.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/forgot-password/forgot-password.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/pre-registration/pre-registration.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/reset-password/reset-password.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-in/sign-in.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-up/sign-up.module.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-up-success/sign-up-success.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/account/changepicture/changepicture.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/static/sample/sample.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/back/back.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/builder/builder.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/favourite/favourite.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/list/list.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/new/new.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/prepare/prepare.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/preview/preview.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/progress/progress.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/recipients/recipients.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/schedule/schedule.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/send/send.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/sent/sent.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/test-popup/test-popup.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/trend/trend.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/used/used.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/top-menu/handle-profile-image-error.directive/handle-profile-image-error.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/builder/addressee-popup/addressee-popup.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/builder/replyaddress-popup/replyaddress-popup.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/prepare/confirmation-popup/confirmation-popup.module.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/prepare/discard-popup/discard-popup.module.js"></script> 
+
+ 
+ 
+  <script src="app.component.js"></script> 
+
+ 
+ 
+  <script src="app.config.js"></script> 
+
+ 
+ 
+  <script src="config/animations.config.js"></script> 
+
+ 
+ 
+  <script src="config/env.js"></script> 
+
+ 
+ 
+  <script src="config/web.config.js"></script> 
+
+ 
+ 
+  <script src="directives/country-state.directive.js"></script> 
+
+ 
+ 
+  <script src="scripts/jibbar.event.js"></script> 
+
+ 
+ 
+  <script src="scripts/popmotion.global.min.3.5.0.js"></script> 
+
+ 
+ 
+  <script src="services/auth.service.js"></script> 
+
+ 
+ 
+  <script src="services/back.service.js"></script> 
+
+ 
+ 
+  <script src="services/creditconsumption.service.js"></script> 
+
+ 
+ 
+  <script src="services/email.service.js"></script> 
+
+ 
+ 
+  <script src="services/groupService.js"></script> 
+
+ 
+ 
+  <script src="services/importcontact.service.js"></script> 
+
+ 
+ 
+  <script src="services/jibbarHub.service.js"></script> 
+
+ 
+ 
+  <script src="services/lodash.service.js"></script> 
+
+ 
+ 
+  <script src="services/notification.service.js"></script> 
+
+ 
+ 
+  <script src="services/signature.service.js"></script> 
+
+ 
+ 
+  <script src="services/statemove.service.js"></script> 
+
+ 
+ 
+  <script src="services/template.service.js"></script> 
+
+ 
+ 
+  <script src="services/timezone.service.js"></script> 
+
+ 
+ 
+  <script src="services/userImage.service.js"></script> 
+
+ 
+ 
+  <script src="components/builder/builder.component.js"></script> 
+
+ 
+ 
+  <script src="components/builder/builder.service.js"></script> 
+
+ 
+ 
+  <script src="components/checkbox/checkbox.directive.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/dashboard.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/dashboard.config.js"></script> 
+
+ 
+ 
+  <script src="components/datepicker/datepicker.config.js"></script> 
+
+ 
+ 
+  <script src="components/fileread/fileread.directive.js"></script> 
+
+ 
+ 
+  <script src="components/home/home.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/home.config.js"></script> 
+
+ 
+ 
+  <script src="components/letter-filter/letter-filter.directive.js"></script> 
+
+ 
+ 
+  <script src="components/popup/popup-close.directive.js"></script> 
+
+ 
+ 
+  <script src="components/popup/popup-container.directive.js"></script> 
+
+ 
+ 
+  <script src="components/popup/popup-open.directive.js"></script> 
+
+ 
+ 
+  <script src="components/popup/popup.directive.js"></script> 
+
+ 
+ 
+  <script src="components/popup/popup.service.js"></script> 
+
+ 
+ 
+  <script src="components/progress-loader/progress-loader.directive.js"></script> 
+
+ 
+ 
+  <script src="components/radio/radio.directive.js"></script> 
+
+ 
+ 
+  <script src="components/radio/radio.service.js"></script> 
+
+ 
+ 
+  <script src="components/recipients-search/recipients-search.directive.js"></script> 
+
+ 
+ 
+  <script src="components/select/select.directive.js"></script> 
+
+ 
+ 
+  <script src="components/select/select.filter.js"></script> 
+
+ 
+ 
+  <script src="components/table/table-sort.directive.js"></script> 
+
+ 
+ 
+  <script src="components/table/table.directive.js"></script> 
+
+ 
+ 
+  <script src="components/template-preview/template-preview.component.js"></script> 
+
+ 
+ 
+  <script src="components/template-preview/template-preview.config.js"></script> 
+
+ 
+ 
+  <script src="components/templates-gallery/templates-gallery-popup.component.js"></script> 
+
+ 
+ 
+  <script src="components/templates-gallery/templates-gallery.component.js"></script> 
+
+ 
+ 
+  <script src="components/templates-grid/templates-grid-element.directive.js"></script> 
+
+ 
+ 
+  <script src="components/templates-grid/templates-grid.directive.js"></script> 
+
+ 
+ 
+  <script src="components/timepicker/timepicker.config.js"></script> 
+
+ 
+ 
+  <script src="components/timepicker/timepicker.filter.js"></script> 
+
+ 
+ 
+  <script src="components/builder/customizable/customizable.directive.js"></script> 
+
+ 
+ 
+  <script src="components/builder/images-popup/images-popup.component.js"></script> 
+
+ 
+ 
+  <script src="components/builder/link-popup/link-popup.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/sidebar/sidebar.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/sidebar/sidebar.service.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/static/static.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/static/static.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/templates.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/templates.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/top-menu/top-menu.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/email-activation/email-activation.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/email-activation/email-activation.config.js"></script> 
+
+ 
+ 
+  <script src="components/home/forgot-password/forgot-password.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/forgot-password/forgot-password.config.js"></script> 
+
+ 
+ 
+  <script src="components/home/pre-registration/pre-registration.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/pre-registration/pre-registration.config.js"></script> 
+
+ 
+ 
+  <script src="components/home/reset-password/reset-password.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/reset-password/reset-password.config.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-in/sign-in.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-in/sign-in.config.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-up/sign-up.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-up/sign-up.config.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-up-success/sign-up-success.component.js"></script> 
+
+ 
+ 
+  <script src="components/home/sign-up-success/sign-up-success.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/account/changepicture/changepicture.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/account/changepicture/changepicture.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/static/sample/sample.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/static/sample/sample.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/back/back.directive.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/builder/builder.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/builder/builder.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/favourite/favourite.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/favourite/favourite.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/list/list.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/list/list.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/new/new.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/new/new.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/prepare/prepare.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/prepare/prepare.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/preview/preview.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/preview/preview.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/progress/progress.directive.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/recipients/recipients.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/recipients/recipients.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/schedule/schedule.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/schedule/schedule.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/send/send.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/send/send.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/sent/sent.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/sent/sent.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/test-popup/test-popup.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/trend/trend.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/trend/trend.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/used/used.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/used/used.config.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/top-menu/handle-profile-image-error.directive/handle-profile-image-error.directive.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/builder/addressee-popup/addressee-popup.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/builder/replyaddress-popup/replyaddress-popup.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/prepare/confirmation-popup/confirmation-popup.component.js"></script> 
+
+ 
+ 
+  <script src="components/dashboard/templates/prepare/discard-popup/discard-popup.component.js"></script> 
+
+ 
+ 
+  <!-- endinject -->
+  <!-- endbuild -->
+</body>
+
+</html>
