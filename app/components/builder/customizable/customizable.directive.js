@@ -42,9 +42,9 @@
     return directive;
   }
 
-  CustomizableController.$inject = ['$scope', '$element', '$attrs', '$templateRequest', '$compile', 'jibbarBuilder', 'jibbarPopup', '$rootScope', '$timeout', 'emailService','signatureService'];
+  CustomizableController.$inject = ['$scope', '$element', '$attrs', '$templateRequest', '$compile', 'jibbarBuilder', 'jibbarPopup', '$rootScope', '$timeout', 'emailService','signatureService','textAngularManager'];
 
-  function CustomizableController($scope, $element, $attrs, $templateRequest, $compile, jibbarBuilder, jibbarPopup, $rootScope, $timeout, emailService,signatureService) {
+  function CustomizableController($scope, $element, $attrs, $templateRequest, $compile, jibbarBuilder, jibbarPopup, $rootScope, $timeout, emailService,signatureService,textAngularManager) {
     var vm = this;
 
     vm.$onInit = $onInit;

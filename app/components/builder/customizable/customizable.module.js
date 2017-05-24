@@ -2,5 +2,5 @@
   'use strict';
 
   angular
-    .module('jibbar.builder.customizable', []);
+    .module('jibbar.builder.customizable', ['textAngular']);
 })();
